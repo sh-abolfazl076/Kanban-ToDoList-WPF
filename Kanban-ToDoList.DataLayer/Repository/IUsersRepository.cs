@@ -14,7 +14,7 @@ namespace Kanban_ToDoList.DataLayer.Repository
         IEnumerable<User> FilterUserByUsername(string username);
         bool AddUser(User user);  
         User GetUserById(int userId);
-        int LoginUserByUsernameAndPassword(string username, string password);
+        User GetUserByUsernameAndPassword(string username, string password);
 
     }
 }
