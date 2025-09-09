@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bfa5b85b6a624756979434facae7740b" Name="Diagram1">
+        <EntityTypeShape EntityType="KanbanToDoListWPFModel.Permission" Width="1.5" PointX="7.375" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KanbanToDoListWPFModel.Stage" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KanbanToDoListWPFModel.Task" Width="1.5" PointX="2" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KanbanToDoListWPFModel.UserPermission" Width="1.5" PointX="2" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KanbanToDoListWPFModel.User" Width="1.5" PointX="7.625" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="KanbanToDoListWPFModel.FK_UserPermissions_Permissions" ManuallyRouted="false" />
+        <AssociationConnector Association="KanbanToDoListWPFModel.FK_Tasks_Stage" ManuallyRouted="false" />
+        <AssociationConnector Association="KanbanToDoListWPFModel.FK_Tasks_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="KanbanToDoListWPFModel.FK_UserPermissions_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
