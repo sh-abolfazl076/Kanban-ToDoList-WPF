@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban-ToDoList.App", "Kanban-ToDoList.App\Kanban-ToDoList.App.csproj", "{F4E5EA17-96E0-4F63-B547-F60194B32CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kanban-ToDoList.DataLayer", "Kanban-ToDoList.DataLayer\Kanban-ToDoList.DataLayer.csproj", "{1DA74A01-C688-4D56-A056-945DD279CB4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4E5EA17-96E0-4F63-B547-F60194B32CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E5EA17-96E0-4F63-B547-F60194B32CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E5EA17-96E0-4F63-B547-F60194B32CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E5EA17-96E0-4F63-B547-F60194B32CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA74A01-C688-4D56-A056-945DD279CB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA74A01-C688-4D56-A056-945DD279CB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA74A01-C688-4D56-A056-945DD279CB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA74A01-C688-4D56-A056-945DD279CB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {324742D8-994F-467A-90AA-0725F8D0BDDC}
+	EndGlobalSection
+EndGlobal
