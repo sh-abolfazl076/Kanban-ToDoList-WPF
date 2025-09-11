@@ -192,6 +192,7 @@
     <Compile Include="Repository\IPermissionsRepository.cs" />
     <Compile Include="Repository\ITasksRepository.cs" />
     <Compile Include="Repository\IUsersRepository.cs" />
+    <Compile Include="Services\PermissionsRepository.cs" />
     <Compile Include="Services\TasksRepository.cs" />
     <Compile Include="Services\UsersRepository.cs" />
   </ItemGroup>
