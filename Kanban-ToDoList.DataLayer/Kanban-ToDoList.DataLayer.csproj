@@ -195,6 +195,7 @@
     <Compile Include="Repository\IUsersRepository.cs" />
     <Compile Include="Services\PermissionsRepository.cs" />
     <Compile Include="Services\TasksRepository.cs" />
+    <Compile Include="Services\UserPermissionsRepository.cs" />
     <Compile Include="Services\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
