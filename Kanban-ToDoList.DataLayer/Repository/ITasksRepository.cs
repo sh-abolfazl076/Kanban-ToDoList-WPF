@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 // Internal
-
+using Task = Kanban_ToDoList.DataLayer.Model.Task;
 
 
 namespace Kanban_ToDoList.DataLayer.Repository
