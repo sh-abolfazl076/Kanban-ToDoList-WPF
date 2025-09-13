@@ -173,6 +173,9 @@
     <Compile Include="Views\WinLogin.xaml.cs">
       <DependentUpon>WinLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WinSignup.xaml.cs">
+      <DependentUpon>WinSignup.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\WinConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +188,10 @@
       <DependentUpon>WinConnection.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\WinLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WinSignup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

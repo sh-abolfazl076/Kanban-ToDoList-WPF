@@ -9,12 +9,12 @@
 
     <StackPanel Margin="0,0,0,0" OpacityMask="#FFFDF9F9">
         <Grid>
-            <!--Server name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtServer"/>
+            <!--UserName-->
+            <TextBox HorizontalAlignment="Left" Margin="125,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtUsernameLogin"/>
             <Label Content="UserName" HorizontalAlignment="Left" Margin="30,52,0,0" VerticalAlignment="Top" FontSize="16"/>
 
-            <!--PassWord name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtDatabes"/>
+            <!--PassWord-->
+            <TextBox HorizontalAlignment="Left" Margin="125,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtPasswordLogin"/>
             <Label Content="PassWord" HorizontalAlignment="Left" Margin="30,102,0,0" VerticalAlignment="Top" FontSize="16"/>
 
 
