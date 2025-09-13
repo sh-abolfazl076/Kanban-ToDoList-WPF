@@ -1,17 +1,10 @@
-﻿using Kanban_ToDoList.DataLayer.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// System
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+
+// Internal
+using Kanban_ToDoList.DataLayer.Context;
+
 
 namespace Kanban_ToDoList.App.Views
 {
@@ -23,6 +16,32 @@ namespace Kanban_ToDoList.App.Views
         public ConnectionWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Geting information from Setting
+        /// Set databese connetion information 
+        /// Testing the Connetion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheckDB_Click(object sender, RoutedEventArgs e)
+        {
+            string server = txtServer.Text;
+            string db = txtDatabes.Text;
+            string user = txtUser.Text;
+            string pass = txtPass.Text;
+
+            ApplicationStore.Instance.SetConnectionInfo(server, db, user, pass);
+
+            if (ApplicationStore.Instance.TestConnection())
+            {
+                MessageBox.Show("Connection Was Successful");
+            }
+            else
+            {
+                MessageBox.Show("Connection Failed");
+            }
         }
     }
 }
