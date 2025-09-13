@@ -209,6 +209,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kanban-ToDoList.DataLayer\Kanban-ToDoList.DataLayer.csproj">
+      <Project>{1da74a01-c688-4d56-a056-945dd279cb4b}</Project>
+      <Name>Kanban-ToDoList.DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

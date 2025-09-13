@@ -13,7 +13,13 @@ namespace Kanban_ToDoList.DataLayer.Context
 {
     public class UnitOfWork
     {
-        KanbanToDoListWPFEntities db = new KanbanToDoListWPFEntities();
+        //KanbanToDoListWPFEntities db = new KanbanToDoListWPFEntities();
+        private KanbanToDoListWPFEntities db;
+
+        public UnitOfWork(string connectionString)
+        {
+            db = new KanbanToDoListWPFEntities(connectionString);
+        }
 
         private IUsersRepository _usersRepository;
         public IUsersRepository UsersRepository

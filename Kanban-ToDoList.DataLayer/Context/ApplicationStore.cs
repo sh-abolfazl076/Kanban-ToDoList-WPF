@@ -1,73 +1,69 @@
-﻿// System
+﻿using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
-
-// Internal
-
-
-
-namespace Kanban_ToDoList.App.Context
+namespace Kanban_ToDoList.DataLayer.Context
 {
     public class ApplicationStore
     {
         private static readonly Lazy<ApplicationStore> _instance =
             new Lazy<ApplicationStore>(() => new ApplicationStore());
 
-        private ApplicationStore() { }
-
         public static ApplicationStore Instance => _instance.Value;
+        private ApplicationStore() { }
 
         public string ServerName { get; private set; }
         public string DatabaseName { get; private set; }
-        public string DbUsername { get; private set; }
-        public string DbPassword { get; private set; }
+        public string Username { get; private set; }
+        public string Password { get; private set; }
 
-        public void SetConnectionInfo(string server, string database, string username, string password)
+        /// <summary>
+        /// Get Info from form connetion
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="database"></param>
+        /// <param name="user"></param>
+        /// <param name="pass"></param>
+        public void SetConnectionInfo(string server, string database, string user, string pass)
         {
             ServerName = server;
             DatabaseName = database;
-            DbUsername = username;
-            DbPassword = password;
-        }
+            Username = user;
+            Password = pass;
+        }// End
 
-        public string RawConnectionString =>
-            $"Data Source={ServerName};Initial Catalog={DatabaseName};User ID={DbUsername};Password={DbPassword};Encrypt=False;";
-
+        // make connection
         public string EfConnectionString =>
             $@"metadata=res://*/Model.KanbanModel.csdl|
-               res://*/Model.KanbanModel.ssdl|
-               res://*/Model.KanbanModel.msl;
-               provider=System.Data.SqlClient;
-               provider connection string=""{RawConnectionString};
-               MultipleActiveResultSets=True;
-               App=EntityFramework""";
+        res://*/Model.KanbanModel.ssdl|
+        res://*/Model.KanbanModel.msl;
+        provider=System.Data.SqlClient;
+        provider connection string=""Data Source={ServerName};Initial Catalog={DatabaseName};User ID={Username};Password={Password};MultipleActiveResultSets=True;App=EntityFramework""";
 
-        public DbCompiledModel ConnectionString { get; internal set; }
 
+        /// <summary>
+        /// Text connetion
+        /// </summary>
+        /// <returns></returns>
         public bool TestConnection()
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(RawConnectionString))
+                using (var ctx = new KanbanToDoListWPFEntities(EfConnectionString))
                 {
-                    conn.Open();
-                    MessageBox.Show(EfConnectionString);
-                    return true;
+                    ctx.Database.Connection.Open();
+                    ctx.Database.Connection.Close();
                 }
+                return true;
             }
             catch
             {
                 return false;
             }
-        }
+        }// End
     }
 }

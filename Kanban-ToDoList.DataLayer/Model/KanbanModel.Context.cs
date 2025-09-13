@@ -9,17 +9,22 @@
 
 namespace Kanban_ToDoList.DataLayer.Model
 {
+    using Kanban_ToDoList.DataLayer.Context;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
     public partial class KanbanToDoListWPFEntities : DbContext
     {
-        public KanbanToDoListWPFEntities()
-            : base("name=KanbanToDoListWPFEntities")
+        //public KanbanToDoListWPFEntities()
+        //    : base("name=KanbanToDoListWPFEntities")
+        //{
+        //}
+        public KanbanToDoListWPFEntities(string connectionString)
+              : base(connectionString)
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
