@@ -19,6 +19,19 @@ namespace Kanban_ToDoList.App.Views
         }
 
         /// <summary>
+        /// Getting information from settings and loading it
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtServer.Text = Properties.Settings.Default.ServerName;
+            txtDatabes.Text = Properties.Settings.Default.DatabaseName;
+            txtUser.Text = Properties.Settings.Default.DbUsername;
+            txtPass.Text = Properties.Settings.Default.DbPassword;
+        }//End
+
+        /// <summary>
         /// Geting information from Setting
         /// Set databese connetion information 
         /// Testing the Connetion
@@ -42,6 +55,7 @@ namespace Kanban_ToDoList.App.Views
             {
                 MessageBox.Show("Connection Failed");
             }
-        }
+        }// End
+
     }
 }

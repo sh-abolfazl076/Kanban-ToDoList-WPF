@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
         mc:Ignorable="d"
-        Title="Connection Window" Height="400" Width="363" Background="#FFFDF9F9" WindowStartupLocation="CenterScreen">
+        Title="Connection Window" Height="400" Width="363" Background="#FFFDF9F9" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <StackPanel Margin="0,0,10,0" OpacityMask="#FFFDF9F9">
         <Grid>
