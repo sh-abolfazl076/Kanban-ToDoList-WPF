@@ -21,8 +21,8 @@
         </Grid>
         <Grid>
             <Button Content="Login" Width="80" Margin="235,32,25,-63"  Background="#FFFFD2D2" Name="btnLogin" />
-            <Button Content="Register" Width="80" Margin="139,32,120,-63"  Background="#FFFFD2D2" Name="btnWinRegister" />
-            <Button Content="Check Connection" Width="100" Margin="20,32,220,-63"  Background="#FFFFD2D2" Name="btnWinConnection" RenderTransformOrigin="0.5,0.5" />
+            <Button Content="Register" Width="80" Margin="139,32,120,-63"  Background="#FFFFD2D2" Name="btnWinRegister" Click="btnWinRegister_Click" />
+            <Button Content="Check Connection" Width="100" Margin="20,32,220,-63"  Background="#FFFFD2D2" Name="btnWinConnection" RenderTransformOrigin="0.5,0.5" Click="btnWinConnection_Click" />
         </Grid>
     </StackPanel>
 </Window>
