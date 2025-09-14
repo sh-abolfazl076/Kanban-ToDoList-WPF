@@ -23,8 +23,8 @@
 
         </Grid>
         <Grid>
-            <Button Content="Add User" Width="80" Margin="235,32,25,-63"  Background="#FFFFD2D2" Name="btnAddUser" />
-            <Button Content="Back" Width="80" Margin="139,32,120,-63"  Background="#FFFFD2D2" Name="btnBackWinLogin" />
+            <Button Content="Add User" Width="80" Margin="235,32,25,-63"  Background="#FFFFD2D2" Name="btnAddUser" Click="btnAddUser_Click" />
+            <Button Content="Back" Width="80" Margin="139,32,120,-63"  Background="#FFFFD2D2" Name="btnBackWinLogin" Click="btnBackWinLogin_Click" />
         </Grid>
     </StackPanel>
 </Window>

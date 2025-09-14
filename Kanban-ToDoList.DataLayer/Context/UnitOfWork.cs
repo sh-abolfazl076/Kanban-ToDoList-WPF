@@ -1,5 +1,5 @@
 ﻿// System
-
+using System;
 
 
 // Internal
@@ -9,9 +9,10 @@ using Kanban_ToDoList.DataLayer.Services;
 
 
 
+
 namespace Kanban_ToDoList.DataLayer.Context
 {
-    public class UnitOfWork
+    public class UnitOfWork: IDisposable
     {
         //KanbanToDoListWPFEntities db = new KanbanToDoListWPFEntities();
         private KanbanToDoListWPFEntities db;
