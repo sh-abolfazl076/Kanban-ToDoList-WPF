@@ -49,7 +49,9 @@ namespace Kanban_ToDoList.App.Views
 
             if (ApplicationStore.Instance.TestConnection())
             {
-                MessageBox.Show("Connection Was Successful");
+                WinLogin connect = new WinLogin();
+                this.Close();
+                connect.ShowDialog();
             }
             else
             {
