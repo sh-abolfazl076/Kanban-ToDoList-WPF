@@ -1,6 +1,4 @@
 ﻿// System
-using Kanban_ToDoList.DataLayer.Context;
-using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 // Internal
-
+using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.DataLayer.Model;
 
 
 namespace Kanban_ToDoList.App.Views
