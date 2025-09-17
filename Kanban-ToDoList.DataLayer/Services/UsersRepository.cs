@@ -53,5 +53,10 @@ namespace Kanban_ToDoList.DataLayer.Services
             return db.Users.FirstOrDefault(u => u.UserName == username && u.PassWord == password);
         }
 
+        public User GetUserByUsername(string username)
+        {
+            return db.Users.FirstOrDefault(u => u.UserName == username);
+        }
+
     }
 }

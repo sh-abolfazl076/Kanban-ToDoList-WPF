@@ -43,27 +43,56 @@ namespace Kanban_ToDoList.App.Views
             login.ShowDialog();
         }// End
 
+
         /// <summary>
-        /// 
+        /// Add user to database after validation
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            using(UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+            bool isUsernameAndPasswordValid = Context.Validation.IsUsernameAndPasswordValid(txtUsernameSignup.Text,txtPassSignup.Text);
+            bool isPasswordConfirmed = Context.Validation.IsPasswordConfirmed(txtPassSignup.Text, txtPassCeckSignup.Text);
+
+            if (isUsernameAndPasswordValid && isPasswordConfirmed)
             {
-                User user = new User()
+                try
                 {
-                    UserName = txtUsernameSignup.Text,
-                    PassWord = txtPassSignup.Text,
-                };
-                db.UsersRepository.AddUser(user);
-                db.Save();
-                MessageBox.Show("Added User");
-                WinLogin Backlogin = new WinLogin();
-                this.Close();
-                Backlogin.ShowDialog();
+                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    {
+                        var existingUser = db.UsersRepository.GetUserByUsername(txtUsernameSignup.Text);
+
+                        if (existingUser != null)
+                        {
+                            MessageBox.Show("A User with this name exists, please choose another.");
+                        }
+                        else
+                        {
+                            User user = new User()
+                            {
+                                UserName = txtUsernameSignup.Text,
+                                PassWord = txtPassSignup.Text,
+                                CreatedAt = DateTime.Now,
+                                UpdatedAt = DateTime.Now
+                            };
+
+                            db.UsersRepository.AddUser(user);
+                            db.Save();
+
+                            MessageBox.Show("User added successfully.");
+
+                            WinLogin backLogin = new WinLogin();
+                            this.Close();
+                            backLogin.ShowDialog();
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ِDatabes Error :\n" + ex);
+                }
             }
-        }
+        }//End
     }
 }
