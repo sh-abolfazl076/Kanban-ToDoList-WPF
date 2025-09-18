@@ -47,6 +47,12 @@ namespace Kanban_ToDoList.App.Views
 
             ApplicationStore.Instance.SetConnectionInfo(server, db, user, pass);
 
+            Properties.Settings.Default.ServerName = server;
+            Properties.Settings.Default.DatabaseName = db;
+            Properties.Settings.Default.DbUsername = user;
+            Properties.Settings.Default.DbPassword = pass;
+            Properties.Settings.Default.Save();
+
             if (ApplicationStore.Instance.TestConnection())
             {
                 WinLogin connect = new WinLogin();
