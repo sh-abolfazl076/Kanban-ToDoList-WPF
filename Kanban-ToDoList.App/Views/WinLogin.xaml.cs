@@ -6,7 +6,6 @@ using System.Windows;
 
 // Internal
 using Kanban_ToDoList.DataLayer.Context;
-using Kanban_ToDoList.DataLayer.Model;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -71,12 +70,13 @@ namespace Kanban_ToDoList.App.Views
                         }
                         else
                         {
-
+                            ApplicationStore.Instance.Username = txtUsernameLogin.Text;
+                            
                             int userId = existingUser.ID;
                             string username = existingUser.UserName;
-                            MessageBox.Show(username + " successfully logged in.");
+                            MessageBox.Show(ApplicationStore.Instance.Username + " successfully logged in.");
 
-                            //WinLogin mainPanle = new WinLogin();
+                            //ManiPanleWin mainPanle = new ManiPanleWin();
                             //this.Close();
                             //mainPanle.ShowDialog();
                         }

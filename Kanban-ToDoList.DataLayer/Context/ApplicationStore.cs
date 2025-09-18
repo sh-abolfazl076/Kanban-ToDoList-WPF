@@ -18,8 +18,13 @@ namespace Kanban_ToDoList.DataLayer.Context
 
         public string ServerName { get; private set; }
         public string DatabaseName { get; private set; }
-        public string Username { get; private set; }
+        public string User { get; private set; }
         public string Password { get; private set; }
+
+        public int UserId { get; set; }
+        public string Username { get; set; }
+
+
 
         /// <summary>
         /// Get Info from form connetion
@@ -32,8 +37,21 @@ namespace Kanban_ToDoList.DataLayer.Context
         {
             ServerName = server;
             DatabaseName = database;
-            Username = user;
-            Password = pass;
+            User = user;
+            Password = pass;        
+
+        }// End
+
+        /// <summary>
+        /// Get userId and unsernaem 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="username"></param>
+        public void SetUserIdAndUsername(int userId , string username)
+        {
+            Username = username;
+            UserId = userId;
+
         }// End
 
         // make connection
@@ -42,7 +60,7 @@ namespace Kanban_ToDoList.DataLayer.Context
         res://*/Model.KanbanModel.ssdl|
         res://*/Model.KanbanModel.msl;
         provider=System.Data.SqlClient;
-        provider connection string=""Data Source={ServerName};Initial Catalog={DatabaseName};User ID={Username};Password={Password};MultipleActiveResultSets=True;App=EntityFramework""";
+        provider connection string=""Data Source={ServerName};Initial Catalog={DatabaseName};User ID={User};Password={Password};MultipleActiveResultSets=True;App=EntityFramework""";
 
 
         /// <summary>
