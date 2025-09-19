@@ -48,7 +48,21 @@ namespace Kanban_ToDoList.App.Views
             {
                 MessageBox.Show("ِDatabes Error.");
             }
-        }
+        }//End
+
+        /// <summary>
+        /// Filter GridView by username
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+            {
+                dgvGetUsers.ItemsSource = db.UsersRepository.FilterUserByUsername(txtSearch.Text).ToList();
+            }
+        }//End
     }
+
 
 }

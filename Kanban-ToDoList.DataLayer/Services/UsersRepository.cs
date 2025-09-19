@@ -35,7 +35,7 @@ namespace Kanban_ToDoList.DataLayer.Services
 
         public IEnumerable<User> FilterUserByUsername(string username)
         {
-            return db.Users.Where(f => f.UserName == username);
+            return db.Users.Where(f => f.UserName.Contains(username));
         }
 
         public IEnumerable<User> GetAllUsers()

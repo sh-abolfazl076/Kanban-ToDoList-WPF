@@ -24,7 +24,7 @@
             <!-- Part Users -->
             <GroupBox Header="Users" FontWeight="Bold" Grid.Column="0" Margin="5">
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Top" Margin="5" Name="Search"/>
+                    <TextBox DockPanel.Dock="Top" Margin="5" Name="txtSearch" TextChanged="Search_TextChanged"/>
 
                     <ListView Margin="5" Name="dgvGetUsers">
                         <ListView.View>
