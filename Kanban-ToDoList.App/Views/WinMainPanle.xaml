@@ -30,7 +30,7 @@
             <Button Content="New Task" Margin="10 5" 
                     Padding="14 8" FontWeight="Bold" Foreground="White" 
                     Background="#E81123" BorderBrush="#B50D1E" BorderThickness="1" Cursor="Hand"
-                    Name="btnCreatedTask"
+                    Name="btnCreatedTask" Click="btnCreatedTask_Click"
             />
         </StackPanel>
 
