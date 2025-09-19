@@ -2,22 +2,15 @@
 using Kanban_ToDoList.DataLayer.Context;
 using Kanban_ToDoList.DataLayer.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 
 // Internal
 using Task = Kanban_ToDoList.DataLayer.Model.Task;
+
 
 namespace Kanban_ToDoList.App.Views
 {
@@ -66,13 +59,50 @@ namespace Kanban_ToDoList.App.Views
 
 
         /// <summary>
-        /// 
+        /// Add task: validate form, check user, save to database.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAddTask_Click(object sender, RoutedEventArgs e)
         {
+            bool IsCreateTaskFormValid = Context.Validation.IsCreateTaskFormValid(txtTitle.Text, txtInfo.Text,txtDuration.Text);
 
+            var selectedUser = dgvGetUsers.SelectedItem as User;
+            if (selectedUser == null)
+            {
+                MessageBox.Show("Please select a user.");
+                return;
+            }
+
+            int userId = selectedUser.ID;
+
+            if (IsCreateTaskFormValid)
+            {
+                try
+                {
+                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    {
+                        Task task = new Task()
+                        {
+                            Title = txtTitle.Text,
+                            Description = txtInfo.Text,
+                            CreatedAt = DateTime.Now,
+                            UpdatedAt = DateTime.Now,
+                            Duration = Convert.ToInt32(txtDuration.Text),
+                            StageId = 1,
+                            UserId = userId,
+                        };
+                        db.TasksRepository.AddTask(task);
+                        db.Save();
+
+                        MessageBox.Show("Task created !");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Database Error");
+                }
+            }
         }//End
     }
 
