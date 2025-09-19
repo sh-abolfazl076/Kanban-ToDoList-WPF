@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
         mc:Ignorable="d"
-        Title="CreateTask"
+        Title="CreateTask" Height="400" Width="600"
         WindowStartupLocation="CenterScreen"
-        Height="400" Width="600">
+        Loaded="Window_Loaded">
+
 
     <Border BorderBrush="#D0D0D0" BorderThickness="1" CornerRadius="6" Padding="10">
         <Grid>
@@ -23,9 +24,9 @@
             <!-- Part Users -->
             <GroupBox Header="Users" FontWeight="Bold" Grid.Column="0" Margin="5">
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Top" Margin="5" Name="btnSearch"/>
+                    <TextBox DockPanel.Dock="Top" Margin="5" Name="Search"/>
 
-                    <ListView Margin="5">
+                    <ListView Margin="5" Name="dgvGetUsers">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="User" Width="150" DisplayMemberBinding="{Binding UserName}" />
