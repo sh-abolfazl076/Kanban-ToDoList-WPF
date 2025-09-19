@@ -1,0 +1,96 @@
+﻿<Window x:Class="Kanban_ToDoList.App.Views.WinMainPanle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
+        mc:Ignorable="d"
+        Title="Kanban ToDoList" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+
+    <DockPanel>
+
+        <!-- Top bar -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">
+
+            <!-- Users -->
+            <Button Content="Users List" Margin="5" 
+                    Padding="12 6" FontWeight="Bold" Foreground="White" 
+                    Background="#0078D7" BorderBrush="#005A9E" BorderThickness="1"  Cursor="Hand"
+                    Name="btnUsers"
+            />
+
+            <!-- Connect DB -->
+            <Button Content="log Out" Margin="5" 
+                    Padding="12 6" FontWeight="Bold" Foreground="White" 
+                    Background="#107C10" BorderBrush="#0B5C0B" BorderThickness="1" Cursor="Hand"
+                    Name="btnLogOut"
+            />
+
+            <!-- New Task -->
+            <Button Content="New Task" Margin="10 5" 
+                    Padding="14 8" FontWeight="Bold" Foreground="White" 
+                    Background="#E81123" BorderBrush="#B50D1E" BorderThickness="1" Cursor="Hand"
+                    Name="btnCreatedTask"
+            />
+        </StackPanel>
+
+
+        <!-- Main Panel -->
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- ToDo -->
+            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="3">
+                <DockPanel>
+                    <TextBlock Text="ToDo" FontWeight="Bold" FontSize="14" 
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                    <StackPanel x:Name="PanelToDo"/>
+                </DockPanel>
+            </Border>
+
+            <!-- Doing -->
+            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="3">
+                <DockPanel>
+                    <TextBlock Text="Doing" FontWeight="Bold" FontSize="14" 
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                    <StackPanel x:Name="PanelDoing"/>
+                </DockPanel>
+            </Border>
+
+            <!-- Review -->
+            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="3">
+                <DockPanel>
+                    <TextBlock Text="Review" FontWeight="Bold" FontSize="14" 
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                    <StackPanel x:Name="PanelReview"/>
+                </DockPanel>
+            </Border>
+
+            <!-- Done -->
+            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="3">
+                <DockPanel>
+                    <TextBlock Text="Done" FontWeight="Bold" FontSize="14" 
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                    <StackPanel x:Name="PanelDone"/>
+                </DockPanel>
+            </Border>
+
+            <!-- Cancelled -->
+            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="3">
+                <DockPanel>
+                    <TextBlock Text="Cancelled" FontWeight="Bold" FontSize="14" 
+                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                    <StackPanel x:Name="PanelCancelled"/>
+                </DockPanel>
+            </Border>
+        </Grid>
+        
+        
+    </DockPanel>
+</Window>

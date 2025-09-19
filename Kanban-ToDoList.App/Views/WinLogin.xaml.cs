@@ -76,9 +76,9 @@ namespace Kanban_ToDoList.App.Views
                             string username = existingUser.UserName;
                             MessageBox.Show(ApplicationStore.Instance.Username + " successfully logged in.");
 
-                            //ManiPanleWin mainPanle = new ManiPanleWin();
-                            //this.Close();
-                            //mainPanle.ShowDialog();
+                            WinMainPanle mainPanle = new WinMainPanle();
+                            this.Close();
+                            mainPanle.ShowDialog();
                         }
                     }
 
