@@ -69,12 +69,9 @@ namespace Kanban_ToDoList.App.Views
                             MessageBox.Show("User is not existion");
                         }
                         else
-                        {
-                            ApplicationStore.Instance.Username = txtUsernameLogin.Text;
-                            
-                            int userId = existingUser.ID;
-                            string username = existingUser.UserName;
-                            MessageBox.Show(ApplicationStore.Instance.Username + " successfully logged in.");
+                        {                            
+                            ApplicationStore.Instance.Username = existingUser.UserName;
+                            ApplicationStore.Instance.UserId = existingUser.ID;
 
                             WinMainPanle mainPanle = new WinMainPanle();
                             this.Close();

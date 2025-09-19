@@ -1,22 +1,9 @@
 ﻿// System
-using Kanban_ToDoList.App.Services;
-using Kanban_ToDoList.DataLayer.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 
 // Internal
+using Kanban_ToDoList.App.Services;
+using Kanban_ToDoList.DataLayer.Context;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -43,13 +30,29 @@ namespace Kanban_ToDoList.App.Views
         }
 
         /// <summary>
-        /// 
+        /// Run when the window opens
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            ReloadTasks();
+        }//End
 
-        }
+        /// <summary>
+        /// Load tasks for all panels by user and stage
+        /// </summary>
+        public void ReloadTasks()
+        {
+            int userId = ApplicationStore.Instance.UserId;
+
+            LoadTasksPanel panelLoader = new LoadTasksPanel();
+            panelLoader.LoadTask(PanelToDo, userId, 1);
+            panelLoader.LoadTask(PanelDoing, userId, 2);
+            panelLoader.LoadTask(PanelReview, userId, 3);
+            panelLoader.LoadTask(PanelDone, userId, 4);
+            panelLoader.LoadTask(PanelCancelled, userId, 5);
+        }//End
+
     }
 }
