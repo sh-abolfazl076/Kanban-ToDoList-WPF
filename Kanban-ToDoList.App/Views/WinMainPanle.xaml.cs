@@ -1,4 +1,6 @@
 ﻿// System
+using Kanban_ToDoList.App.Services;
+using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +40,16 @@ namespace Kanban_ToDoList.App.Views
         {
             WinCreateTask addTask = new WinCreateTask();
             addTask.ShowDialog();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

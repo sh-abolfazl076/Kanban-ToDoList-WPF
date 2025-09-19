@@ -171,6 +171,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Context\Validation.cs" />
+    <Compile Include="Services\LoadTasksPanel.cs" />
     <Compile Include="Views\WinCreateTask.xaml.cs">
       <DependentUpon>WinCreateTask.xaml</DependentUpon>
     </Compile>
@@ -244,9 +245,7 @@
       <Name>Kanban-ToDoList.DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
