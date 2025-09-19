@@ -4,6 +4,7 @@ using System.Windows;
 // Internal
 using Kanban_ToDoList.App.Services;
 using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.App.Context;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -47,11 +48,11 @@ namespace Kanban_ToDoList.App.Views
             int userId = ApplicationStore.Instance.UserId;
 
             LoadTasksPanel panelLoader = new LoadTasksPanel();
-            panelLoader.LoadTask(PanelToDo, userId, 1);
-            panelLoader.LoadTask(PanelDoing, userId, 2);
-            panelLoader.LoadTask(PanelReview, userId, 3);
-            panelLoader.LoadTask(PanelDone, userId, 4);
-            panelLoader.LoadTask(PanelCancelled, userId, 5);
+            panelLoader.LoadTask(PanelToDo, userId, TaskStages.ToDoStage);
+            panelLoader.LoadTask(PanelDoing, userId, TaskStages.DoigStage);
+            panelLoader.LoadTask(PanelReview, userId, TaskStages.ReviewStage);
+            panelLoader.LoadTask(PanelDone, userId, TaskStages.DoneStage);
+            panelLoader.LoadTask(PanelCancelled, userId, TaskStages.CanalledStage);
         }//End
 
     }

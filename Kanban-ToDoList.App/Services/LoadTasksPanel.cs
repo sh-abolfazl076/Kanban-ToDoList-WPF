@@ -1,11 +1,12 @@
 ﻿// System
+// Internal
+using Kanban_ToDoList.App.Views;
+using Kanban_ToDoList.DataLayer.Context;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
-
-// Internal
-using Kanban_ToDoList.DataLayer.Context;
 
 
 

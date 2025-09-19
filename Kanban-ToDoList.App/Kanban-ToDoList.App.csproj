@@ -170,6 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Context\TaskStages.cs" />
     <Compile Include="Context\Validation.cs" />
     <Compile Include="Services\LoadTasksPanel.cs" />
     <Compile Include="Views\WinCreateTask.xaml.cs">
@@ -183,6 +184,9 @@
     </Compile>
     <Compile Include="Views\WinRegister.xaml.cs">
       <DependentUpon>WinRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WinTask.xaml.cs">
+      <DependentUpon>WinTask.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\WinConnection.xaml">
       <SubType>Designer</SubType>
@@ -208,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WinRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WinTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
