@@ -23,5 +23,10 @@ namespace Kanban_ToDoList.App.Views
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
