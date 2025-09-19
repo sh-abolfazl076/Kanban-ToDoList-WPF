@@ -171,6 +171,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Context\Validation.cs" />
+    <Compile Include="Views\WinCreateTask.xaml.cs">
+      <DependentUpon>WinCreateTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WinLogin.xaml.cs">
       <DependentUpon>WinLogin.xaml</DependentUpon>
     </Compile>
@@ -191,6 +194,10 @@
     <Compile Include="Views\WinConnection.xaml.cs">
       <DependentUpon>WinConnection.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\WinCreateTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WinLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
