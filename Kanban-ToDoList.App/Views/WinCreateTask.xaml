@@ -41,13 +41,20 @@
                 <StackPanel Margin="10">
                     <StackPanel Orientation="Horizontal" Margin="0 5">
                         <TextBlock Text="Title :" Width="50" VerticalAlignment="Center"/>
-                        <TextBox Width="235" Name="btnTitle"/>
+                        <TextBox Margin="5" Width="235" Name="txtTitle"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 5">
+                        <TextBlock Text="Duration :" Width="50" VerticalAlignment="Center"/>
+                        <TextBox Margin="5" Width="30" x:Name="txtDuration"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0 5">
                         <TextBlock Text="Info :" Width="50" VerticalAlignment="Top"/>
-                        <TextBox Width="235" Height="245" TextWrapping="Wrap" AcceptsReturn="True" Name="btnInfo"/>
+                        <TextBox Margin="5" Width="235" Height="200" TextWrapping="Wrap" AcceptsReturn="True" Name="txtInfo"/>
                     </StackPanel>
+
+                    
                 </StackPanel>
             </GroupBox>
 
@@ -63,7 +70,7 @@
                     BorderThickness="0"
                     Cursor="Hand"
                     Width="100"
-                    Name="btnAddTask"/>
+                    Name="btnAddTask" Click="btnAddTask_Click"/>
         </Grid>
     </Border>
 </Window>

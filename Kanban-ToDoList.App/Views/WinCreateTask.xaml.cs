@@ -1,5 +1,6 @@
 ﻿// System
 using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ using System.Windows.Shapes;
 
 
 // Internal
-
+using Task = Kanban_ToDoList.DataLayer.Model.Task;
 
 namespace Kanban_ToDoList.App.Views
 {
@@ -61,6 +62,17 @@ namespace Kanban_ToDoList.App.Views
             {
                 dgvGetUsers.ItemsSource = db.UsersRepository.FilterUserByUsername(txtSearch.Text).ToList();
             }
+        }//End
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddTask_Click(object sender, RoutedEventArgs e)
+        {
+
         }//End
     }
 

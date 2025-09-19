@@ -22,14 +22,14 @@ namespace Kanban_ToDoList.App.Context
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool IsUsernameAndPasswordValid(string username , string password)
+        public static bool IsUsernameAndPasswordValid(string username, string password)
         {
-            if (username == "" && password == "")
+            if (username == "" || password == "")
             {
                 MessageBox.Show("UserName Connot be Empty.");
                 return false;
             }
-            if (username.Length > 100 && password.Length > 200)
+            if (username.Length > 100 || password.Length > 200)
             {
                 MessageBox.Show("Username or password exceeds the allowed limit.");
                 return false;
@@ -45,17 +45,43 @@ namespace Kanban_ToDoList.App.Context
         /// <param name="password"></param>
         /// <param name="passwordChek"></param>
         /// <returns></returns>
-        public static bool IsPasswordConfirmed(string password , string passwordChek)
+        public static bool IsPasswordConfirmed(string password, string passwordChek)
         {
             if (password != passwordChek)
             {
                 MessageBox.Show("The amount is not one..");
                 return false;
             }
-            return true ;
+            return true;
         }//End
 
 
+        /// <summary>
+        /// This method checks that username and password are not empty and have valid length.
+        /// Checks that duration is current and values ​​are numeric.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool IsCreateTaskFormValid(string title, string Info, string duration)
+        {
+            if (title == "" || Info == "")
+            {
+                MessageBox.Show("UserName Connot be Empty.");
+                return false;
+            }
+            if (title.Length > 200 || Info.Length > 900)
+            {
+                MessageBox.Show("Title or Info exceeds the allowed limit.");
+                return false;
+            }
+            if (!string.IsNullOrEmpty(duration) && !int.TryParse(duration, out _))
+            {
+                MessageBox.Show("Duration must be a number.");
+                return false;
+            }
+            return true;
+        }//End
 
     }
 }
