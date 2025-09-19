@@ -19,12 +19,25 @@ namespace Kanban_ToDoList.App.Views
     /// </summary>
     public partial class WinTask : Window
     {
+        // Properties to set from main window
+        public string TitleText { get; set; }
+        public string Description { get; set; }
+        public int UserId { get; set; }
+        public DateTime Date { get; set; }
+        public int TaskId { get; set; }
+        public int StageId { get; set; }
+
         public WinTask()
         {
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSaveChange_Click(object sender, RoutedEventArgs e)
         {
 
         }

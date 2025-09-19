@@ -1,12 +1,14 @@
 ﻿// System
-// Internal
-using Kanban_ToDoList.App.Views;
-using Kanban_ToDoList.DataLayer.Context;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Media;
+
+// Internal
+using Kanban_ToDoList.App.Views;
+using Kanban_ToDoList.DataLayer.Context;
+
 
 
 
@@ -43,7 +45,7 @@ namespace Kanban_ToDoList.App.Services
         /// <param name="value"></param>
         /// <param name="userId"></param>
         /// <param name="stageId"></param>
-        private void CreateButton(StackPanel panel, string title, int idTask, object Description, int userId, int stageId)
+        private void CreateButton(StackPanel panel, string title, int idTask, string Description, int userId, int stageId)
         {
             Button btn = new Button
             {
@@ -59,6 +61,20 @@ namespace Kanban_ToDoList.App.Services
             };
 
             panel.Children.Add(btn); // Add the button to the 
+
+            btn.Click += (s, e) =>
+            {
+                WinTask frm = new WinTask
+                {
+                    Title = title,
+                    Description = Description,
+                    UserId = userId,
+                    TaskId = idTask,
+                    StageId = stageId,
+                    Owner = Application.Current.MainWindow
+                };
+                frm.ShowDialog();
+            };
 
         }//End
 

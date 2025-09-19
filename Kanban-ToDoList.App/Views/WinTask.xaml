@@ -29,6 +29,6 @@
 
         <!-- btn Edit -->
         <Button Grid.Row="2" Grid.Column="1" Content="Edit" Width="80" Height="30" 
-                Background="#E91E63" Foreground="White" FontWeight="Bold" Name="btnSaveChange"/>
+                Background="#E91E63" Foreground="White" FontWeight="Bold" Name="btnSaveChange" Click="btnSaveChange_Click"/>
     </Grid>
 </Window>
