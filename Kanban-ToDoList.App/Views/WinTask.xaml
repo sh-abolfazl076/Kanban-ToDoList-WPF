@@ -25,7 +25,13 @@
         <TextBox Grid.Row="1" Grid.ColumnSpan="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,52,0,18" Name="txtInfo"/>
 
         <!-- ComboBox -->
-        <ComboBox Grid.Row="2" Grid.Column="0" Height="30" Margin="0,0,10,0"/>
+        <ComboBox Name="comboBoxStage" Grid.Row="2" Grid.Column="0" Height="30" Margin="0,0,10,0">
+            <ComboBoxItem Content="ToDo" Name="ToDoStage"/>
+            <ComboBoxItem Content="Doing" Name="DoingStage" />
+            <ComboBoxItem Content="Review" Name="ReviewStage"/>
+            <ComboBoxItem Content="Done" Name="DoneStage"/>
+            <ComboBoxItem Content="Cancelled" Name="CancelledStage"/>
+        </ComboBox>
 
         <!-- btn Edit -->
         <Button Grid.Row="2" Grid.Column="1" Content="Edit" Width="80" Height="30" 
