@@ -62,5 +62,10 @@ namespace Kanban_ToDoList.App.Views
             panelLoader.LoadTask(PanelCancelled, userId, TaskStages.CanalledStage);
         }//End
 
+        private void btnUsers_Click(object sender, RoutedEventArgs e)
+        {
+            WinUsersList panleUser = new WinUsersList();
+            panleUser.ShowDialog();
+        }//End
     }
 }

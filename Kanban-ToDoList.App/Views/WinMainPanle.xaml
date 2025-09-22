@@ -16,7 +16,7 @@
             <Button Content="Users List" Margin="5" 
                     Padding="12 6" FontWeight="Bold" Foreground="White" 
                     Background="#0078D7" BorderBrush="#005A9E" BorderThickness="1"  Cursor="Hand"
-                    Name="btnUsers"
+                    Name="btnUsers" Click="btnUsers_Click"
             />
 
             <!-- Connect DB -->

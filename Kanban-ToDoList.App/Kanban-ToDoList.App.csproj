@@ -188,6 +188,9 @@
     <Compile Include="Views\WinTask.xaml.cs">
       <DependentUpon>WinTask.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WinUsersList.xaml.cs">
+      <DependentUpon>WinUsersList.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\WinConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WinTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WinUsersList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
