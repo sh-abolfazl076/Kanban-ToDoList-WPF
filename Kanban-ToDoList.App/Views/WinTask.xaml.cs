@@ -54,14 +54,44 @@ namespace Kanban_ToDoList.App.Views
             }
         }//End
 
+
         /// <summary>
-        /// 
+        /// Save changes of task
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">The button click event<</param>
         /// <param name="e"></param>
         private void btnSaveChange_Click(object sender, RoutedEventArgs e)
         {
+            int selectedIndex = comboBoxStage.SelectedIndex;
+            bool IsTaskFormValid = Context.Validation.IsTaskFormValid(txtTitle.Text, txtInfo.Text, comboBoxStage.SelectedIndex);
+            if (IsTaskFormValid)
+            {
+                try
+                {
+                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    {
+                        var task = db.TasksRepository.GetTaskById(TaskId);
+                        if (task != null)
+                        {
+                            task.Title = txtTitle.Text;
+                            task.Description = txtInfo.Text;
+                            //task.Description = Description;
+                            task.UpdatedAt = DateTime.Now;
+                            task.StageId = selectedIndex + 1;
+                            db.TasksRepository.UpdateTask(task);
+                            db.Save();
 
+                            this.Close();
+
+                        }
+                    }
+                }
+                catch
+                {
+
+                    MessageBox.Show("Database Error");
+                }
+            }
         }//End
     }
 }
