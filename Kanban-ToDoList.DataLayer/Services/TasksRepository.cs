@@ -53,7 +53,17 @@ namespace Kanban_ToDoList.DataLayer.Services
 
         public bool UpdateTask(Task task)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Entry(task).State = System.Data.Entity.EntityState.Modified;
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
         }
+
     }
 }

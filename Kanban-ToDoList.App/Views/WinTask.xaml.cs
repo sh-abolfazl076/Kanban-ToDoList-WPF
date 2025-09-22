@@ -1,4 +1,5 @@
 ﻿// System
+using Kanban_ToDoList.DataLayer.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System.Windows.Data;
 
 
 // Internal
-
+//using Task = Kanban_ToDoList.DataLayer.Model.Task;
 
 
 
@@ -45,7 +46,7 @@ namespace Kanban_ToDoList.App.Views
             {
                 txtTitle.Text = Title;
                 txtInfo.Text = Description;
-                comboBoxStage.SelectedIndex = StageId;
+                comboBoxStage.SelectedIndex = StageId - 1;
             }
             catch
             {
@@ -53,9 +54,14 @@ namespace Kanban_ToDoList.App.Views
             }
         }//End
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveChange_Click(object sender, RoutedEventArgs e)
         {
 
-        }
+        }//End
     }
 }

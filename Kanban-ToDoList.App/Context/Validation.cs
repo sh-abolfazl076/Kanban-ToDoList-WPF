@@ -83,5 +83,25 @@ namespace Kanban_ToDoList.App.Context
             return true;
         }//End
 
+        public static bool IsTaskFormValid(string title, string Info, int comboBoxStage)
+        {
+            if (title == "" || Info == "")
+            {
+                MessageBox.Show("UserName Connot be Empty.");
+                return false;
+            }
+            if (title.Length > 200 || Info.Length > 900)
+            {
+                MessageBox.Show(" .");
+                return false;
+            }
+            if (comboBoxStage < 0)
+            {
+                MessageBox.Show("Duration must be a number.");
+                return false;
+            }
+            return true;
+        }//End
+
     }
 }
