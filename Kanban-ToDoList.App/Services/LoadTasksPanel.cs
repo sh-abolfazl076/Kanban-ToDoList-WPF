@@ -1,13 +1,14 @@
 ﻿// System
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Markup;
 using System.Windows.Media;
 
 // Internal
 using Kanban_ToDoList.App.Views;
 using Kanban_ToDoList.DataLayer.Context;
+
 
 
 
@@ -24,6 +25,7 @@ namespace Kanban_ToDoList.App.Services
         /// <param name="stageId"></param>
         public void LoadTask(StackPanel panel, int userId, int stageId)
         {
+            panel.Children.Clear();
             using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
                 var getTasks = db.TasksRepository.GetAllTasksByUserIdAndStageId(userId, stageId);
@@ -71,9 +73,18 @@ namespace Kanban_ToDoList.App.Services
                     UserId = userId,
                     TaskId = idTask,
                     StageId = stageId,
-                    Owner = Application.Current.MainWindow
+                };
+
+                frm.Closed += (sender, args) =>
+                {
+                    var existing = Application.Current.Windows.OfType<WinMainPanle>().FirstOrDefault();
+                    if (existing != null)
+                    {
+                        existing.ReloadTasks();
+                    }
                 };
                 frm.ShowDialog();
+
             };
 
         }//End
