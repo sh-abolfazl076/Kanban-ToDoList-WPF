@@ -21,6 +21,7 @@ namespace Kanban_ToDoList.App.Views
 
         /// <summary>
         /// This event is used to open the "Add Task" window
+        /// refresh main panel after closing Create task window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -28,6 +29,12 @@ namespace Kanban_ToDoList.App.Views
         {
             WinCreateTask addTask = new WinCreateTask();
             addTask.ShowDialog();
+
+            if (addTask.DialogResult == true) 
+            {
+                ReloadTasks();
+            }
+
         }
 
         /// <summary>

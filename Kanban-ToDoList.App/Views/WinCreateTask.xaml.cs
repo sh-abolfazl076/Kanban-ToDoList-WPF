@@ -65,6 +65,7 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void btnAddTask_Click(object sender, RoutedEventArgs e)
         {
+            int stageToDo = 1;
             bool IsCreateTaskFormValid = Context.Validation.IsCreateTaskFormValid(txtTitle.Text, txtInfo.Text,txtDuration.Text);
 
             var selectedUser = dgvGetUsers.SelectedItem as User;
@@ -89,13 +90,14 @@ namespace Kanban_ToDoList.App.Views
                             CreatedAt = DateTime.Now,
                             UpdatedAt = DateTime.Now,
                             Duration = Convert.ToInt32(txtDuration.Text),
-                            StageId = 1,
+                            StageId = stageToDo,
                             UserId = userId,
                         };
                         db.TasksRepository.AddTask(task);
                         db.Save();
+                        this.DialogResult = true;
+                        this.Close();
 
-                        MessageBox.Show("Task created !");
                     }
                 }
                 catch
