@@ -1,6 +1,4 @@
-﻿using Kanban_ToDoList.App.Context;
-using Kanban_ToDoList.App.Services;
-using Kanban_ToDoList.DataLayer.Context;
+﻿// System
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+
+
+// Internal
+using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.App.Services;
+
 
 namespace Kanban_ToDoList.App.Views
 {
@@ -27,11 +26,25 @@ namespace Kanban_ToDoList.App.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Loaded Users in the WinUsersList form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            LoadUsers();
         }//End
 
+
+        /// <summary>
+        /// Call UsersList class and Load Users
+        /// </summary>
+        public void LoadUsers()
+        {
+            UsersListPanel panelUsers = new UsersListPanel();
+            panelUsers.LoadUsers(PanelUsers);
+        }//End
 
     }
 }
