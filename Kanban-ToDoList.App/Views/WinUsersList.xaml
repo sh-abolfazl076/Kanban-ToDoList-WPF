@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
         mc:Ignorable="d"
-        Title="UserList" Height="450" Width="500" WindowStartupLocation="CenterScreen">
+        Title="UserList" Height="450" Width="500" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <DockPanel HorizontalAlignment="Stretch">
         <!-- Top bar -->
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">

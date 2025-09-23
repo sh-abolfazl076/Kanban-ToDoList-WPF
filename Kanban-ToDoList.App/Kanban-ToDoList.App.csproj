@@ -173,6 +173,7 @@
     <Compile Include="Context\TaskStages.cs" />
     <Compile Include="Context\Validation.cs" />
     <Compile Include="Services\LoadTasksPanel.cs" />
+    <Compile Include="Services\UsersListPanel.cs" />
     <Compile Include="Views\WinCreateTask.xaml.cs">
       <DependentUpon>WinCreateTask.xaml</DependentUpon>
     </Compile>

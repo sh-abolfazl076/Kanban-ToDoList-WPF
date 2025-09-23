@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Kanban_ToDoList.App.Context;
+using Kanban_ToDoList.App.Services;
+using Kanban_ToDoList.DataLayer.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +26,12 @@ namespace Kanban_ToDoList.App.Views
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }//End
+
+
     }
 }
