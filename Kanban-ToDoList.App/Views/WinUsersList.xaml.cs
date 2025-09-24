@@ -43,7 +43,7 @@ namespace Kanban_ToDoList.App.Views
         public void LoadUsers()
         {
             UsersListPanel panelUsers = new UsersListPanel();
-            panelUsers.LoadUsers(PanelUsers);
+            panelUsers.LoadUsers(PanelUsers, PanelRemove, PanelEdit, PanelPermission);
         }//End
 
     }

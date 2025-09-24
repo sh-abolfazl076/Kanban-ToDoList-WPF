@@ -1,15 +1,17 @@
 ﻿// System
 using System;
-using System.Windows.Controls;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Media;
 
 // Internal
 using Kanban_ToDoList.DataLayer.Context;
+using System.Windows.Controls;
+//using System.Windows.Forms;
+
 
 
 namespace Kanban_ToDoList.App.Services
@@ -20,7 +22,7 @@ namespace Kanban_ToDoList.App.Services
         /// Add LoadUsers method to load users and buttons
         /// </summary>
         /// <param name="panelUser"></param>
-        public void LoadUsers(StackPanel panelUser)
+        public void LoadUsers(StackPanel panelUser , StackPanel PanelRemove , StackPanel PanelEdit , StackPanel PanelPermission)
         {   
             using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
@@ -28,6 +30,7 @@ namespace Kanban_ToDoList.App.Services
                 foreach (var user in getUsers)
                 {
                     AddUsernameLabel(panelUser, user.UserName , user.ID);
+                    RemoveUser(PanelRemove, user.UserName, user.ID);
                 }
             }
         }//End
@@ -52,7 +55,42 @@ namespace Kanban_ToDoList.App.Services
                 FontSize = 12,
                 FontWeight = FontWeights.Bold
             };
-            panelUser.Children.Add(btn); // Add the button to the
+            panelUser.Children.Add(btn); // Add the button to the panelUser
+
+        }//End
+
+
+        /// <summary>
+        /// This method adds a "Remove" button to delete a user 
+        /// </summary>
+        /// <param name="PanelRemove"></param>
+        /// <param name="usernaem"></param>
+        /// <param name="idUser"></param>
+        public void RemoveUser(StackPanel PanelRemove, string usernaem , int idUser)
+        {
+            string username = usernaem;
+            Button btn = new Button
+            {
+                Content = "Remove",
+                Tag = idUser,
+                Width = 80,
+                Height = 45,
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E91E63")),
+                Foreground = Brushes.White,
+                Margin = new Thickness(5),
+                FontSize = 12,
+                FontWeight = FontWeights.Bold
+            };
+            PanelRemove.Children.Add(btn); // Add the button to the PanelRemove
+
+            btn.Click += (s, e) =>
+            {
+                if (MessageBox.Show($"Are you sure you want to remove user '{username}'?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+
+                    
+                }
+            };
 
         }//End
 
