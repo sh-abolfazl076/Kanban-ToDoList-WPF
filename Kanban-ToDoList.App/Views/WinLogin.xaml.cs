@@ -41,7 +41,9 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void btnWinRegister_Click(object sender, RoutedEventArgs e)
         {
-            WinRegister singUp = new WinRegister();
+            int typeAddUser = 0;
+            WinEditOrAddUser singUp = new WinEditOrAddUser();
+            singUp.type = typeAddUser;
             this.Close();
             singUp.ShowDialog();
         }// End

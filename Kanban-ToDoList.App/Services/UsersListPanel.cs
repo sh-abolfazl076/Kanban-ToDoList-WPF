@@ -114,6 +114,7 @@ namespace Kanban_ToDoList.App.Services
         /// <param name="idUser"></param>
         public void EditUser(StackPanel panelEdit, string usernaem, int idUser)
         {
+            int typeEditUser = 1;
             string username = usernaem;
             Button btn = new Button
             {
@@ -131,12 +132,13 @@ namespace Kanban_ToDoList.App.Services
 
             btn.Click += (s, e) =>
             {
-                WinEditUser edit = new WinEditUser
+                WinEditOrAddUser frm = new WinEditOrAddUser
                 {
                     Username = usernaem,
                     userId = idUser,
+                    type = typeEditUser
                 };
-                edit.ShowDialog();
+                frm.ShowDialog();
             };
             
 

@@ -177,17 +177,14 @@
     <Compile Include="Views\WinCreateTask.xaml.cs">
       <DependentUpon>WinCreateTask.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WinEditUser.xaml.cs">
-      <DependentUpon>WinEditUser.xaml</DependentUpon>
+    <Compile Include="Views\WinEditOrAddUser.xaml.cs">
+      <DependentUpon>WinEditOrAddUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WinLogin.xaml.cs">
       <DependentUpon>WinLogin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WinMainPanle.xaml.cs">
       <DependentUpon>WinMainPanle.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WinRegister.xaml.cs">
-      <DependentUpon>WinRegister.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WinTask.xaml.cs">
       <DependentUpon>WinTask.xaml</DependentUpon>
@@ -210,7 +207,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WinEditUser.xaml">
+    <Page Include="Views\WinEditOrAddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,10 +216,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WinMainPanle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WinRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
