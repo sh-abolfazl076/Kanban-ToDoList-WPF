@@ -58,5 +58,26 @@ namespace Kanban_ToDoList.DataLayer.Services
             return db.Users.FirstOrDefault(u => u.UserName == username);
         }
 
+        public bool RemoveUserById(int userId)
+        {
+            try
+            {
+                var user = GetUserById(userId);
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    return true;
+                }
+                return false;
+            }
+            catch 
+            {
+
+                return false ;
+            }
+        }
+
+
+
     }
 }
