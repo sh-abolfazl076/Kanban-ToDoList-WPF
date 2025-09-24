@@ -96,18 +96,29 @@ namespace Kanban_ToDoList.App.Views
                     {
                         using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
                         {
+
+
                             var edit = db.UsersRepository.GetUserById(userId);
-                            if (edit != null)
+                            var existingUser = db.UsersRepository.GetUserByUsername(txtUsername.Text);
+
+                            if (existingUser != null)
                             {
-                                edit.UserName = txtUsername.Text;
-                                edit.PassWord = txtPassWord.Password;
-                                edit.UpdatedAt = DateTime.Now;
+                                MessageBox.Show("A User with this name exists, please choose another.");
+                            }
+                            else
+                            {
+                                if (edit != null)
+                                {
+                                    edit.UserName = txtUsername.Text;
+                                    edit.PassWord = txtPassWord.Password;
+                                    edit.UpdatedAt = DateTime.Now;
 
 
-                                db.UsersRepository.UpdataUser(edit);
-                                db.Save();
-                                MessageBox.Show("User Updated");
-                                this.Close();
+                                    db.UsersRepository.UpdataUser(edit);
+                                    db.Save();
+                                    MessageBox.Show("User Updated");
+                                    this.Close();
+                                }
                             }
                         }
                     }
