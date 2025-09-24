@@ -17,6 +17,7 @@ namespace Kanban_ToDoList.DataLayer.Repository
         User GetUserByUsernameAndPassword(string username, string password);
         User GetUserByUsername(string username);
         bool RemoveUserById(int userId);
+        bool UpdataUser(User user);
 
     }
 }

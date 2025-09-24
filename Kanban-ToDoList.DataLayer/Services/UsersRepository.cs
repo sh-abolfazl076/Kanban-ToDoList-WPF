@@ -78,5 +78,18 @@ namespace Kanban_ToDoList.DataLayer.Services
             }
         }
 
+        public bool UpdataUser(User user)
+        {
+            try
+            {
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                return true;
+            }
+            catch
+            {
+
+                return false;
+            }
+        }
     }
 }
