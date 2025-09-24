@@ -52,6 +52,11 @@ namespace Kanban_ToDoList.App.Views
             frm.type = typeAddUser;
             frm.backToUserList = backToUserList;
             frm.ShowDialog();
+            if (frm.DialogResult == true) 
+            {
+                LoadUsers();
+            }
+
         }//End
     }
 }

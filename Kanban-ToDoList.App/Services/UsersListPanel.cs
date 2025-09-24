@@ -1,15 +1,14 @@
 ﻿// System
-using Kanban_ToDoList.App.Views;
-// Internal
-using Kanban_ToDoList.DataLayer.Context;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+
+// Internal
+using Kanban_ToDoList.App.Views;
+using Kanban_ToDoList.DataLayer.Context;
+
+
 
 
 
@@ -23,6 +22,11 @@ namespace Kanban_ToDoList.App.Services
         /// <param name="panelUser"></param>
         public void LoadUsers(StackPanel panelUser , StackPanel PanelRemove , StackPanel PanelEdit , StackPanel PanelPermission)
         {   
+            panelUser.Children.Clear();
+            PanelRemove.Children.Clear();
+            PanelEdit.Children.Clear();
+            PanelPermission.Children.Clear();
+
             using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
                 var getUsers = db.UsersRepository.GetAllUsers();
@@ -94,6 +98,12 @@ namespace Kanban_ToDoList.App.Services
                         {
                             db.UsersRepository.RemoveUserById(idUser);
                             db.Save();
+
+                            var existing = Application.Current.Windows.OfType<WinUsersList>().FirstOrDefault();
+                            if (existing != null)
+                            {
+                                existing.LoadUsers();
+                            }
                         }
                     }
                     catch 
@@ -138,7 +148,18 @@ namespace Kanban_ToDoList.App.Services
                     userId = idUser,
                     type = typeEditUser
                 };
+
+
+                frm.Closed += (sender, args) =>
+                {
+                    var existing = Application.Current.Windows.OfType<WinUsersList>().FirstOrDefault();
+                    if (existing != null)
+                    {
+                        existing.LoadUsers();
+                    }
+                };
                 frm.ShowDialog();
+
             };
             
 

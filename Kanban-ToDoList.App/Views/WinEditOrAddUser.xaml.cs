@@ -148,6 +148,7 @@ namespace Kanban_ToDoList.App.Views
 
                                 if(backToUserList == true)
                                 {
+                                    this.DialogResult = true;
                                     this.Close();
                                 }
                                 else
