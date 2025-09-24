@@ -10,7 +10,6 @@ using System.Windows.Media;
 // Internal
 using Kanban_ToDoList.DataLayer.Context;
 using System.Windows.Controls;
-//using System.Windows.Forms;
 
 
 
@@ -30,7 +29,7 @@ namespace Kanban_ToDoList.App.Services
                 foreach (var user in getUsers)
                 {
                     AddUsernameLabel(panelUser, user.UserName , user.ID);
-                    RemoveUser(PanelRemove, user.UserName, user.ID);
+                    RemoveUser(PanelRemove, user.UserName, user.ID);            
                 }
             }
         }//End
@@ -62,6 +61,7 @@ namespace Kanban_ToDoList.App.Services
 
         /// <summary>
         /// This method adds a "Remove" button to delete a user 
+        /// The user will not be deleted if there is a turnover.
         /// </summary>
         /// <param name="PanelRemove"></param>
         /// <param name="usernaem"></param>
@@ -87,8 +87,19 @@ namespace Kanban_ToDoList.App.Services
             {
                 if (MessageBox.Show($"Are you sure you want to remove user '{username}'?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
+                    try
+                    {
+                        using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                        {
+                            db.UsersRepository.RemoveUserById(idUser);
+                            db.Save();
+                        }
+                    }
+                    catch 
+                    {
+                        MessageBox.Show($"The user has a record and cannot be deleted.");
+                    }
 
-                    
                 }
             };
 

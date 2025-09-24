@@ -1,11 +1,12 @@
 ﻿// System
-using System.Collections.Generic;
-using System.Linq;
-
-
 // Internal
 using Kanban_ToDoList.DataLayer.Model;
 using Kanban_ToDoList.DataLayer.Repository;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using User = Kanban_ToDoList.DataLayer.Model.User;
 
 
 namespace Kanban_ToDoList.DataLayer.Services
@@ -76,8 +77,6 @@ namespace Kanban_ToDoList.DataLayer.Services
                 return false ;
             }
         }
-
-
 
     }
 }
