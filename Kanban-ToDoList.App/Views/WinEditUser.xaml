@@ -30,8 +30,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
-            <Button Content="Save" Name="btnSaveEditUser" Width="80" Height="30" Margin="0,0,10,0" Background="#4CAF50" Foreground="White"/>
-            <Button Content="Close" Name="btnColse" Width="80" Height="30" Background="#F44336" Foreground="White"/>
+            <Button Content="Save" Name="btnSaveEditUser" Width="80" Height="30" Margin="0,0,10,0" Background="#4CAF50" Foreground="White" Click="btnSaveEditUser_Click"/>
+            <Button Content="Close" Name="btnColse" Width="80" Height="30" Background="#F44336" Foreground="White" Click="btnColse_Click"/>
         </StackPanel>
         
     </Grid>

@@ -131,7 +131,11 @@ namespace Kanban_ToDoList.App.Services
 
             btn.Click += (s, e) =>
             {
-                WinEditUser edit = new WinEditUser();
+                WinEditUser edit = new WinEditUser
+                {
+                    Username = usernaem,
+                    userId = idUser,
+                };
                 edit.ShowDialog();
             };
             
