@@ -1,15 +1,15 @@
 ﻿// System
+using Kanban_ToDoList.App.Views;
+// Internal
+using Kanban_ToDoList.DataLayer.Context;
 using System;
-using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media;
-
-// Internal
-using Kanban_ToDoList.DataLayer.Context;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 
 
@@ -129,9 +129,10 @@ namespace Kanban_ToDoList.App.Services
             };
             panelEdit.Children.Add(btn);
 
-            btn.Click -= (s, e) =>
+            btn.Click += (s, e) =>
             {
-
+                WinEditUser edit = new WinEditUser();
+                edit.ShowDialog();
             };
             
 
