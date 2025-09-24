@@ -57,14 +57,14 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            bool isUsernameAndPasswordValid = Context.Validation.IsUsernameAndPasswordValid(txtUsernameLogin.Text, txtPasswordLogin.Text);
+            bool isUsernameAndPasswordValid = Context.Validation.IsUsernameAndPasswordValid(txtUsernameLogin.Text, txtPasswordLogin.Password);
             if (isUsernameAndPasswordValid)
             {
                 try
                 {
                     using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
                     {
-                        var existingUser = db.UsersRepository.GetUserByUsernameAndPassword(txtUsernameLogin.Text, txtPasswordLogin.Text);
+                        var existingUser = db.UsersRepository.GetUserByUsernameAndPassword(txtUsernameLogin.Text, txtPasswordLogin.Password);
 
                         if (existingUser == null)
                         {
