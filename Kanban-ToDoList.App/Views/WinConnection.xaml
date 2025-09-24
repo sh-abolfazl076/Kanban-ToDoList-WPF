@@ -5,30 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
         mc:Ignorable="d"
-        Title="Connection Window" Height="400" Width="363" Background="#FFFDF9F9" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Connection Window" Height="445" Width="380" 
+        Background="#FAFAFA" WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded">
 
-    <StackPanel Margin="0,0,10,0" OpacityMask="#FFFDF9F9">
-        <Grid>
-            <!--Server name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtServer"/>
-            <Label Content="Server" HorizontalAlignment="Left" Margin="30,52,0,0" VerticalAlignment="Top" FontSize="16"/>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-            <!--PassWord name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtDatabes"/> 
-            <Label Content="Databese" HorizontalAlignment="Left" Margin="30,102,0,0" VerticalAlignment="Top" FontSize="16"/>
-            
+        <!-- Title -->
+        <TextBlock Text="Database Connection" 
+                   FontSize="20" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-            <!--User name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtUser"/>
-            <Label Content="User" HorizontalAlignment="Left" Margin="30,154,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <!-- Inputs -->
+        <StackPanel Grid.Row="1" Margin="10" VerticalAlignment="Top" >
+            <Label Content="Server"/>
+            <TextBox Name="txtServer" Height="25" Margin="0,0,0,10"/>
 
-            <!--Databes name-->
-            <TextBox HorizontalAlignment="Left" Margin="125,225,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Height="23" Name="txtPass"/>
-            <Label Content="PassWord" HorizontalAlignment="Left" Margin="30,217,0,0" VerticalAlignment="Top" FontSize="16"/>
+            <Label Content="Database"/>
+            <TextBox Name="txtDatabes" Height="25" Margin="0,0,0,10"/>
 
-        </Grid>
-        <Grid>
-            <Button Content="Checking" Margin="217,32,39,-63" BorderBrush="#FFEA8D8D" Background="#FFFFD2D2" Name="btnCheckDB" Click="btnCheckDB_Click"/>
-        </Grid>
-    </StackPanel>
+            <Label Content="User"/>
+            <TextBox Name="txtUser" Height="25" Margin="0,0,0,10"/>
+
+            <Label Content="Password"/>
+            <TextBox Name="txtPass" Height="25"/>
+        </StackPanel>
+
+        <!-- Button -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Check Connection" Name="btnCheckDB" 
+                    Width="140" Height="35" 
+                    Background="#2196F3" Foreground="White" 
+                    FontWeight="Bold" 
+                    Click="btnCheckDB_Click"/>
+        </StackPanel>
+    </Grid>
 </Window>

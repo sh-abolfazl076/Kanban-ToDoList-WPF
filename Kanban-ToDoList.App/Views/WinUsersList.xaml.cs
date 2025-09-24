@@ -1,16 +1,9 @@
 ﻿// System
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 
 
 // Internal
-using Kanban_ToDoList.DataLayer.Context;
 using Kanban_ToDoList.App.Services;
 
 
@@ -46,5 +39,19 @@ namespace Kanban_ToDoList.App.Views
             panelUsers.LoadUsers(PanelUsers, PanelRemove, PanelEdit, PanelPermission);
         }//End
 
+        /// <summary>
+        /// Opens the SignUp form when called from the UserList.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            int typeAddUser = 0;
+            bool backToUserList = true;
+            WinEditOrAddUser frm = new WinEditOrAddUser();
+            frm.type = typeAddUser;
+            frm.backToUserList = backToUserList;
+            frm.ShowDialog();
+        }//End
     }
 }

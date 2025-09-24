@@ -21,7 +21,9 @@ namespace Kanban_ToDoList.App.Views
         public int userId { get; set; }
         public int type { get; set; }
 
+        public bool backToUserList = false;
         private int typeEditUser = 1;
+        
        
 
         public WinEditOrAddUser()
@@ -57,7 +59,7 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void btnColseOrBack_Click(object sender, RoutedEventArgs e)
         {
-            if (type == typeEditUser)
+            if (type == typeEditUser || backToUserList == true)
             {
                 this.Close();
             }
@@ -67,6 +69,8 @@ namespace Kanban_ToDoList.App.Views
                 this.Close();
                 login.ShowDialog();
             }
+
+
         }//End
 
         /// <summary>
@@ -142,9 +146,16 @@ namespace Kanban_ToDoList.App.Views
 
                                 MessageBox.Show("User added successfully.");
 
-                                WinLogin backLogin = new WinLogin();
-                                this.Close();
-                                backLogin.ShowDialog();
+                                if(backToUserList == true)
+                                {
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    WinLogin backLogin = new WinLogin();
+                                    this.Close();
+                                    backLogin.ShowDialog();
+                                }
                             }
                         }
 
