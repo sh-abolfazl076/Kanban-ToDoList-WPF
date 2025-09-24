@@ -29,7 +29,8 @@ namespace Kanban_ToDoList.App.Services
                 foreach (var user in getUsers)
                 {
                     AddUsernameLabel(panelUser, user.UserName , user.ID);
-                    RemoveUser(PanelRemove, user.UserName, user.ID);            
+                    RemoveUser(PanelRemove, user.UserName, user.ID);
+                    EditUser(PanelEdit, user.UserName, user.ID);
                 }
             }
         }//End
@@ -105,6 +106,35 @@ namespace Kanban_ToDoList.App.Services
 
         }//End
 
+        /// <summary>
+        /// When clicked, it should open a new form to edit the user.
+        /// </summary>
+        /// <param name="panelEdit"></param>
+        /// <param name="usernaem"></param>
+        /// <param name="idUser"></param>
+        public void EditUser(StackPanel panelEdit, string usernaem, int idUser)
+        {
+            string username = usernaem;
+            Button btn = new Button
+            {
+                Content = "Edit",
+                Tag = idUser,
+                Width = 80,
+                Height = 45,
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFC107")),
+                Foreground = Brushes.White,
+                Margin = new Thickness(5),
+                FontSize = 12,
+                FontWeight = FontWeights.Bold
+            };
+            panelEdit.Children.Add(btn);
 
+            btn.Click -= (s, e) =>
+            {
+
+            };
+            
+
+        }// end
     }
 }
