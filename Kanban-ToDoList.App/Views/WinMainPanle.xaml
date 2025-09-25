@@ -36,61 +36,63 @@
 
 
         <!-- Main Panel -->
-        <Grid Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <!-- ToDo -->
-            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="3">
-                <DockPanel>
-                    <TextBlock Text="ToDo" FontWeight="Bold" FontSize="14" 
-                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
-                    <StackPanel x:Name="PanelToDo"/>
-                </DockPanel>
-            </Border>
+                <!-- ToDo -->
+                <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="3">
+                    <DockPanel>
+                        <TextBlock Text="ToDo" FontWeight="Bold" FontSize="14" 
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                        <StackPanel x:Name="PanelToDo"/>
+                    </DockPanel>
+                </Border>
 
-            <!-- Doing -->
-            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="3">
-                <DockPanel>
-                    <TextBlock Text="Doing" FontWeight="Bold" FontSize="14" 
-                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
-                    <StackPanel x:Name="PanelDoing"/>
-                </DockPanel>
-            </Border>
+                <!-- Doing -->
+                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="3">
+                    <DockPanel>
+                        <TextBlock Text="Doing" FontWeight="Bold" FontSize="14" 
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                        <StackPanel x:Name="PanelDoing"/>
+                    </DockPanel>
+                </Border>
 
-            <!-- Review -->
-            <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="3">
-                <DockPanel>
-                    <TextBlock Text="Review" FontWeight="Bold" FontSize="14" 
-                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
-                    <StackPanel x:Name="PanelReview"/>
-                </DockPanel>
-            </Border>
+                <!-- Review -->
+                <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="3">
+                    <DockPanel>
+                        <TextBlock Text="Review" FontWeight="Bold" FontSize="14" 
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                        <StackPanel x:Name="PanelReview"/>
+                    </DockPanel>
+                </Border>
 
-            <!-- Done -->
-            <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="3">
-                <DockPanel>
-                    <TextBlock Text="Done" FontWeight="Bold" FontSize="14" 
-                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
-                    <StackPanel x:Name="PanelDone"/>
-                </DockPanel>
-            </Border>
+                <!-- Done -->
+                <Border Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="3">
+                    <DockPanel>
+                        <TextBlock Text="Done" FontWeight="Bold" FontSize="14" 
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                        <StackPanel x:Name="PanelDone"/>
+                    </DockPanel>
+                </Border>
 
-            <!-- Cancelled -->
-            <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="3">
-                <DockPanel>
-                    <TextBlock Text="Cancelled" FontWeight="Bold" FontSize="14" 
-                               DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
-                    <StackPanel x:Name="PanelCancelled"/>
-                </DockPanel>
-            </Border>
-        </Grid>
-        
-        
+                <!-- Cancelled -->
+                <Border Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="3">
+                    <DockPanel>
+                        <TextBlock Text="Cancelled" FontWeight="Bold" FontSize="14" 
+                                   DockPanel.Dock="Top" TextAlignment="Center" Margin="5"/>
+                        <StackPanel x:Name="PanelCancelled"/>
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+
+
     </DockPanel>
 </Window>
