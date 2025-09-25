@@ -142,6 +142,7 @@ namespace Kanban_ToDoList.App.Services
                     {
                         using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
                         {
+                            db.UserPermissionsRepository.RemoveUserPermissionByUserId(idUser);
                             db.UsersRepository.RemoveUserById(idUser);
                             db.Save();
 

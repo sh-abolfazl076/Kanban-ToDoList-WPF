@@ -15,5 +15,6 @@ namespace Kanban_ToDoList.DataLayer.Repository
         UserPermission CheckPermission(int userId, int permissionId);
         UserPermission GetUserPermissionById(int permissionId);
         bool RemoveUserPermission(int permissionId);
+        bool RemoveUserPermissionByUserId(int userId);
     }
 }

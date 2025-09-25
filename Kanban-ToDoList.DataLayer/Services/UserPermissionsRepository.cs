@@ -57,6 +57,24 @@ namespace Kanban_ToDoList.DataLayer.Services
                 return false;
             }
         }
+        public bool RemoveUserPermissionByUserId(int userId)
+        {
+            try
+            {
+                var permission = db.UserPermissions.Where(p => p.UserId == userId).ToList();
+
+                if (permission.Any())
+                {
+                    db.UserPermissions.RemoveRange(permission);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }
