@@ -35,8 +35,43 @@ namespace Kanban_ToDoList.App.Services
                     AddUsernameLabel(panelUser, user.UserName , user.ID);
                     RemoveUser(PanelRemove, user.UserName, user.ID);
                     EditUser(PanelEdit, user.UserName, user.ID);
+                    Permission(PanelPermission, user.UserName, user.ID);
                 }
             }
+        }//End
+
+        /// <summary>
+        /// Adds a button to the UserList form. 
+        /// When clicked, it opens the WinPermissionUser form.
+        /// </summary>
+        /// <param name="panelPermission"></param>
+        /// <param name="username"></param>
+        /// <param name="idUser"></param>
+        private void Permission(StackPanel panelPermission, string username, int idUser)
+        {
+            Button btn = new Button
+            {
+                Content = "Remove",
+                Tag = idUser,
+                Width = 80,
+                Height = 45,
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#28A745")),
+                Foreground = Brushes.White,
+                Margin = new Thickness(5),
+                FontSize = 12,
+                FontWeight = FontWeights.Bold
+            };
+            panelPermission.Children.Add(btn);
+
+            btn.Click += (s, e) =>
+            {
+                WinPermissionUser access = new WinPermissionUser
+                {
+                    UserId = idUser,
+                    username = username,
+                };
+            };
+
         }//End
 
         /// <summary>
@@ -53,7 +88,7 @@ namespace Kanban_ToDoList.App.Services
                 Tag = idUser,
                 Width = 125,
                 Height = 45,
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E91E63")),
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#17A2B8")),
                 Foreground = Brushes.White,
                 Margin = new Thickness(5),
                 FontSize = 12,
