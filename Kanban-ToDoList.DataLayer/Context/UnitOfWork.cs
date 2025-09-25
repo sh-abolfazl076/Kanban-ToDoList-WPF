@@ -61,6 +61,19 @@ namespace Kanban_ToDoList.DataLayer.Context
             }
         }// End
 
+        private IPermissionsRepository _PermissionsRepository;
+        public IPermissionsRepository PermissionsRepository
+        {
+            get
+            {
+                if (_PermissionsRepository == null)
+                {
+                    _PermissionsRepository = new PermissionsRepository(db);
+                }
+                return _PermissionsRepository;
+            }
+        }// End
+
 
 
         //

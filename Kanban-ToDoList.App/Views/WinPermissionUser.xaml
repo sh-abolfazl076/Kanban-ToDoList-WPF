@@ -23,12 +23,12 @@
             <CheckBox Name="chkAddTask" Content="Add New Task" FontSize="14" Margin="0,5"/>
             <CheckBox Name="chkDelete" Content="Delete Tasks" FontSize="14" Margin="0,5"/>
             <CheckBox Name="chkUserAccess" Content="Manage Users Access" FontSize="14" Margin="0,5"/>
-            <CheckBox Name="chkChangeStatus" Content="Change Task Status" FontSize="14" Margin="0,5"/>
+            <CheckBox Name="chkUpdateTask" Content="Change Task Status" FontSize="14" Margin="0,5"/>
         </StackPanel>
 
         <!-- Save Button -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-            <Button Content="Save" Name="btnPermssionUser" Width="100" Height="30" Background="#4CAF50" Foreground="White" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Save" Name="btnPermssionUser" Width="100" Height="30" Background="#4CAF50" Foreground="White" FontWeight="Bold" BorderThickness="0" Click="btnPermssionUser_Click"/>
         </StackPanel>
         
     </Grid>
