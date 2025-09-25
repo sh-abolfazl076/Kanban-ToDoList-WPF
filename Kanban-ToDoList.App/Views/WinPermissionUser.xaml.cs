@@ -1,9 +1,7 @@
 ﻿// System
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 // Internal
 using Kanban_ToDoList.DataLayer.Model;
@@ -20,6 +18,7 @@ namespace Kanban_ToDoList.App.Views
     {
         public int UserId { get; set; } 
         public string UserName { get; set; }
+
         public WinPermissionUser()
         {
             InitializeComponent();
@@ -77,5 +76,44 @@ namespace Kanban_ToDoList.App.Views
             }
 
         }//End
+
+        /// <summary>
+        /// Loads the user's current permissions when the window is opened.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var permissions = new List<(CheckBox CheckBox, string Permission)>
+            {
+                (chkAddTask, "AddTask"),
+                (chkDelete, "RemoveTask"),
+                (chkUpdateTask, "ModifyTask"),
+                (chkUserAccess, "AccessUsers")
+            };
+            try
+            {
+                foreach (var (checkbox, permissionName) in permissions)
+                {
+                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    {
+                        int getPermissionId = db.PermissionsRepository.GetPermissionIdByTitle(permissionName);
+                        var existing = db.UserPermissionsRepository.CheckPermission(UserId, getPermissionId);
+
+                        if (existing != null)
+                        {
+                            checkbox.IsChecked = true;
+                        }
+                    }
+
+                }
+            }
+
+            catch
+            {
+                MessageBox.Show("Databes Error!");
+            }
+        }//End
+
     }
 }
