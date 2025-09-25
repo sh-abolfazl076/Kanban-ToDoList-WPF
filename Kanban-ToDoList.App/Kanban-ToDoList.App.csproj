@@ -174,9 +174,6 @@
     <Compile Include="Context\Validation.cs" />
     <Compile Include="Services\LoadTasksPanel.cs" />
     <Compile Include="Services\UsersListPanel.cs" />
-    <Compile Include="Views\WinPermissionUser.xaml.cs">
-      <DependentUpon>WinPermissionUser.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WinCreateTask.xaml.cs">
       <DependentUpon>WinCreateTask.xaml</DependentUpon>
     </Compile>
@@ -189,16 +186,15 @@
     <Compile Include="Views\WinMainPanle.xaml.cs">
       <DependentUpon>WinMainPanle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WinPermissionUser.xaml.cs">
+      <DependentUpon>WinPermissionUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WinTask.xaml.cs">
       <DependentUpon>WinTask.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WinUsersList.xaml.cs">
       <DependentUpon>WinUsersList.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\WinPermissionUser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\WinConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WinMainPanle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WinPermissionUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -51,7 +51,7 @@ namespace Kanban_ToDoList.App.Services
         {
             Button btn = new Button
             {
-                Content = "Remove",
+                Content = "Permission",
                 Tag = idUser,
                 Width = 80,
                 Height = 45,
@@ -68,8 +68,19 @@ namespace Kanban_ToDoList.App.Services
                 WinPermissionUser access = new WinPermissionUser
                 {
                     UserId = idUser,
-                    username = username,
+                    UserName = username,
                 };
+
+                access.Closed += (sender, args) =>
+                {
+                    var existing = Application.Current.Windows.OfType<WinUsersList>().FirstOrDefault();
+                    if (existing != null)
+                    {
+                        existing.LoadUsers();
+                    }
+                };
+                access.ShowDialog();
+
             };
 
         }//End

@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// System
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+// Internal
+
+
 
 namespace Kanban_ToDoList.App.Views
 {
     /// <summary>
-    /// Interaction logic for PermissionUser.xaml
+    /// Interaction logic for WinPermissionUser.xaml
     /// </summary>
-    public partial class PermissionUser : Window
+    public partial class WinPermissionUser : Window
     {
-        public PermissionUser()
+        public int UserId { get; set; } 
+        public string UserName { get; set; }
+        public WinPermissionUser()
         {
             InitializeComponent();
         }
