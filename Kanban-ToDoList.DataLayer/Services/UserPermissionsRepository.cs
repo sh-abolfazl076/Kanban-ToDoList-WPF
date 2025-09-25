@@ -31,9 +31,31 @@ namespace Kanban_ToDoList.DataLayer.Services
                 return false;
             }
         }
-        public bool CheckPermission(int userId, int permissionId) 
+        public UserPermission CheckPermission(int userId, int permissionId) 
         {
-            return db.UserPermissions.Any(p => p.UserId == userId && p.PermissionId == permissionId);
+            return db.UserPermissions.FirstOrDefault(p => p.UserId == userId && p.PermissionId == permissionId);
+        }
+        public UserPermission GetUserPermissionById(int permissionId)
+        {
+            return db.UserPermissions.Find(permissionId);
+        }
+        public bool RemoveUserPermission(int permissionId) 
+        {
+            try
+            {
+                var permission = GetUserPermissionById(permissionId);
+                if (permission != null)
+                {
+                    db.UserPermissions.Remove(permission);
+                    return true;
+                }
+                return false;
+            }
+            catch 
+            {
+
+                return false;
+            }
         }
 
     }

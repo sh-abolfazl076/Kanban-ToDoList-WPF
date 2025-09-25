@@ -18,6 +18,5 @@ namespace Kanban_ToDoList.DataLayer.Repository
         User GetUserByUsername(string username);
         bool RemoveUserById(int userId);
         bool UpdataUser(User user);
-        void AddUser(UserPermission access);
     }
 }

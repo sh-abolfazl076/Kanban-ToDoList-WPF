@@ -26,7 +26,9 @@ namespace Kanban_ToDoList.App.Views
         }
 
         /// <summary>
-        /// 
+        /// Handles the Permission button click in PermissionUser form
+        /// Adds the selected permissions for the user if they don't exist,
+        /// and removes unchecked permissions if they already exist.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -46,10 +48,10 @@ namespace Kanban_ToDoList.App.Views
                 {
                     int getPermissionId = db.PermissionsRepository.GetPermissionIdByTitle(permissionName);
                     var existing = db.UserPermissionsRepository.CheckPermission(UserId, getPermissionId);
-
+                    
                     if (checkbox.IsChecked == true) 
                     {
-                        if (existing == false)
+                        if (existing == null)
                         {
                             UserPermission access = new UserPermission
                             {
@@ -57,19 +59,21 @@ namespace Kanban_ToDoList.App.Views
                                 PermissionId = getPermissionId,
                                 CreatedAt = System.DateTime.Now,
                             };
-                            db.UsersRepository.AddUser(access);
+                            db.UserPermissionsRepository.AddUserPermission(access);
                             db.Save();
                         }
                     }
                     else
                     {
-                        if(existing == true)
+                        if(existing != null)
                         {
-                            //db.PermissionsRepository.RemovePermission(existing);
+                            db.UserPermissionsRepository.RemoveUserPermission(existing.ID);
+                            db.Save();
                         }
                     }
 
                 }
+                this.Close();
             }
 
         }//End
