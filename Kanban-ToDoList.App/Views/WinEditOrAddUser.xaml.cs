@@ -1,11 +1,10 @@
 ﻿// System
-using System;
-using System.Windows;
-
-
+using Kanban_ToDoList.App.Context;
+using Kanban_ToDoList.DataLayer.Context;
 // Internal
 using Kanban_ToDoList.DataLayer.Model;
-using Kanban_ToDoList.DataLayer.Context;
+using System;
+using System.Windows;
 
 
 namespace Kanban_ToDoList.App.Views
