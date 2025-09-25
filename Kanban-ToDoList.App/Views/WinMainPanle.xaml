@@ -23,7 +23,7 @@
             <Button Content="log Out" Margin="5" 
                     Padding="12 6" FontWeight="Bold" Foreground="White" 
                     Background="#107C10" BorderBrush="#0B5C0B" BorderThickness="1" Cursor="Hand"
-                    Name="btnLogOut"
+                    Name="btnLogOut" Click="btnLogOut_Click"
             />
 
             <!-- New Task -->

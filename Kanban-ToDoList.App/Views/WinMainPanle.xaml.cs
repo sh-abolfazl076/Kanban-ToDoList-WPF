@@ -91,5 +91,17 @@ namespace Kanban_ToDoList.App.Views
                 }
             }    
         }//End
+
+        /// <summary>
+        /// Method to open the login form and close the current form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            WinLogin login = new WinLogin();
+            this.Close();
+            login.ShowDialog();
+        }//End
     }
 }
