@@ -1,10 +1,10 @@
 ﻿// System
-using System.Windows;
-
+using Kanban_ToDoList.App.Context;
 // Internal
 using Kanban_ToDoList.App.Services;
 using Kanban_ToDoList.DataLayer.Context;
-using Kanban_ToDoList.App.Context;
+using Kanban_ToDoList.DataLayer.Model;
+using System.Windows;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -20,6 +20,7 @@ namespace Kanban_ToDoList.App.Views
         }
 
         /// <summary>
+        /// Permission for using the CreateTask form
         /// This event is used to open the "Add Task" window
         /// refresh main panel after closing Create task window
         /// </summary>
@@ -27,14 +28,23 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void btnCreatedTask_Click(object sender, RoutedEventArgs e)
         {
-            WinCreateTask addTask = new WinCreateTask();
-            addTask.ShowDialog();
-
-            if (addTask.DialogResult == true) 
+            using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
-                ReloadTasks();
-            }
+                if(db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.AddTask) == null)
+                {
+                    WinCreateTask addTask = new WinCreateTask();
+                    addTask.ShowDialog();
 
+                    if (addTask.DialogResult == true)
+                    {
+                        ReloadTasks();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You do not have access.");
+                }
+            }
         }
 
         /// <summary>

@@ -7,10 +7,10 @@ namespace Kanban_ToDoList.App.Context
 {
     public static class PermissionId
     {
-        static int AddTask = 1;
-        static int RemoveTask = 3;
-        static int ModifyTask = 5;
-        static int AccessUsers = 6;
+        static public int AddTask = 1;
+        static public int RemoveTask = 3;
+        static public int ModifyTask = 5;
+        static public int AccessUsers = 6;
 
     }
 }
