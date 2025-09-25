@@ -1,4 +1,5 @@
 ﻿// System
+using Kanban_ToDoList.App.Context;
 using Kanban_ToDoList.DataLayer.Context;
 using System;
 using System.Collections.Generic;
@@ -42,15 +43,19 @@ namespace Kanban_ToDoList.App.Views
         /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            try
+            using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
                 txtTitle.Text = Title;
                 txtInfo.Text = Description;
                 comboBoxStage.SelectedIndex = StageId - 1;
-            }
-            catch
-            {
-                MessageBox.Show("Error in Loading");
+
+                if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.ModifyTask) == null)
+                {
+                    btnSaveChange.Visibility = Visibility.Collapsed;
+                    txtTitle.IsReadOnly = true;
+                    txtInfo.IsReadOnly = true;
+                    comboBoxStage.IsEnabled = false;
+                }
             }
         }//End
 
@@ -92,6 +97,16 @@ namespace Kanban_ToDoList.App.Views
                     MessageBox.Show("Database Error");
                 }
             }
+        }//End
+
+        /// <summary>
+        /// Open Main Panlel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }//End
     }
 }

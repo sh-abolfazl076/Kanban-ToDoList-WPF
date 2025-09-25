@@ -6,35 +6,48 @@
         xmlns:local="clr-namespace:Kanban_ToDoList.App.Views"
         mc:Ignorable="d"
         Title="Task Window" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <!-- Title -->
             <RowDefinition Height="*"/>
+            <!-- Info -->
             <RowDefinition Height="Auto"/>
+            <!-- Stage + Buttons -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <!-- ComboBox -->
             <ColumnDefinition Width="Auto"/>
+            <!-- Buttons -->
         </Grid.ColumnDefinitions>
 
-        <!-- TextBox -->
-        <TextBox Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,186" Grid.RowSpan="2" Name="txtTitle"/>
+        <!-- Title TextBox -->
+        <TextBox Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,10" Name="txtTitle" Height="30" />
 
-        <!-- TextBox -->
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,52,0,18" Name="txtInfo"/>
+        <!-- Info TextBox -->
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" AcceptsReturn="True" 
+                 TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" 
+                 Margin="0,0,0,10" Name="txtInfo"/>
 
         <!-- ComboBox -->
-        <ComboBox Name="comboBoxStage" Grid.Row="2" Grid.Column="0" Height="30" Margin="0,0,10,0">
+        <ComboBox Grid.Row="2" Grid.Column="0" Name="comboBoxStage" Height="30" Margin="0,0,10,0">
             <ComboBoxItem Content="ToDo" Name="ToDoStage"/>
-            <ComboBoxItem Content="Doing" Name="DoingStage" />
+            <ComboBoxItem Content="Doing" Name="DoingStage"/>
             <ComboBoxItem Content="Review" Name="ReviewStage"/>
             <ComboBoxItem Content="Done" Name="DoneStage"/>
             <ComboBoxItem Content="Cancelled" Name="CancelledStage"/>
         </ComboBox>
 
-        <!-- btn Edit -->
-        <Button Grid.Row="2" Grid.Column="1" Content="Edit" Width="80" Height="30" 
-                Background="#E91E63" Foreground="White" FontWeight="Bold" Name="btnSaveChange" Click="btnSaveChange_Click"/>
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Edit" Width="80" Height="30" 
+                    Background="#28A745" Foreground="White" FontWeight="Bold" 
+                    Name="btnSaveChange" Click="btnSaveChange_Click" Margin="0,0,10,0"/>
+            <Button Content="Close" Width="80" Height="30" 
+                    Background="#E91E63" Foreground="White" FontWeight="Bold" 
+                    Name="btnClose" Click="btnClose_Click" />
+        </StackPanel>
     </Grid>
 </Window>
