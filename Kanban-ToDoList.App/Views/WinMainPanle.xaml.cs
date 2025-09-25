@@ -3,7 +3,6 @@ using Kanban_ToDoList.App.Context;
 // Internal
 using Kanban_ToDoList.App.Services;
 using Kanban_ToDoList.DataLayer.Context;
-using Kanban_ToDoList.DataLayer.Model;
 using System.Windows;
 
 
@@ -30,7 +29,7 @@ namespace Kanban_ToDoList.App.Views
         {
             using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
             {
-                if(db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.AddTask) == null)
+                if(db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.AddTask) != null)
                 {
                     WinCreateTask addTask = new WinCreateTask();
                     addTask.ShowDialog();
@@ -72,10 +71,25 @@ namespace Kanban_ToDoList.App.Views
             panelLoader.LoadTask(PanelCancelled, userId, TaskStages.CanalledStage);
         }//End
 
+        /// <summary>
+        /// Permission for opening and using the UserList form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUsers_Click(object sender, RoutedEventArgs e)
         {
-            WinUsersList panleUser = new WinUsersList();
-            panleUser.ShowDialog();
+            using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+            {
+                if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.AccessUsers) != null)
+                {
+                    WinUsersList panleUser = new WinUsersList();
+                    panleUser.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("You do not have access.");
+                }
+            }    
         }//End
     }
 }
