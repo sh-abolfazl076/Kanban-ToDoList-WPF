@@ -170,6 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Context\PermissionId.cs" />
     <Compile Include="Context\TaskStages.cs" />
     <Compile Include="Context\Validation.cs" />
     <Compile Include="Services\LoadTasksPanel.cs" />
