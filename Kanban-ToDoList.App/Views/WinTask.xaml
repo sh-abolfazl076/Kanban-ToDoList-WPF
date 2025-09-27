@@ -46,8 +46,11 @@
                     Background="#28A745" Foreground="White" FontWeight="Bold" 
                     Name="btnSaveChange" Click="btnSaveChange_Click" Margin="0,0,10,0"/>
             <Button Content="Close" Width="80" Height="30" 
+                    Background="#17A2B8" Foreground="White" FontWeight="Bold" 
+                    x:Name="btnClose" Click="btnClose_Click"  Margin="0,0,10,0" />
+            <Button Content="Remove" Width="80" Height="30" 
                     Background="#E91E63" Foreground="White" FontWeight="Bold" 
-                    Name="btnClose" Click="btnClose_Click" />
+                    Name="btnRemove" Click="btnRemove_Click" />
         </StackPanel>
     </Grid>
 </Window>

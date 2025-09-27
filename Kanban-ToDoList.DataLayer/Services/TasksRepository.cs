@@ -48,7 +48,17 @@ namespace Kanban_ToDoList.DataLayer.Services
 
         public bool RemoveTaskById(int taskId)
         {
-            throw new NotImplementedException();
+            var task = db.Tasks.Find(taskId);
+            try
+            {
+                db.Tasks.Remove(task);
+                return true;
+            }
+            catch 
+            {
+
+                return false;
+            }
         }
 
         public bool UpdateTask(Task task)

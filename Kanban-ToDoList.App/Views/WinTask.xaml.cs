@@ -1,17 +1,12 @@
 ﻿// System
-using Kanban_ToDoList.App.Context;
-using Kanban_ToDoList.DataLayer.Context;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 
 
 // Internal
+using Kanban_ToDoList.App.Context;
+using Kanban_ToDoList.DataLayer.Context;
 //using Task = Kanban_ToDoList.DataLayer.Model.Task;
 
 
@@ -52,6 +47,14 @@ namespace Kanban_ToDoList.App.Views
                 if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.ModifyTask) == null)
                 {
                     btnSaveChange.Visibility = Visibility.Collapsed;
+                    txtTitle.IsReadOnly = true;
+                    txtInfo.IsReadOnly = true;
+                    comboBoxStage.IsEnabled = false;
+                }
+
+                if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.RemoveTask) == null)
+                {
+                    btnRemove.Visibility = Visibility.Collapsed;
                     txtTitle.IsReadOnly = true;
                     txtInfo.IsReadOnly = true;
                     comboBoxStage.IsEnabled = false;
@@ -108,5 +111,26 @@ namespace Kanban_ToDoList.App.Views
         {
             this.Close();
         }//End
+
+        /// <summary>
+        /// Remove task from database and refresh tasks in MainPanel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+            {
+                db.TasksRepository.RemoveTaskById(TaskId);
+                db.Save();
+                this.Close();
+                var existing = Application.Current.Windows.OfType<WinMainPanle>().FirstOrDefault();
+                if (existing != null)
+                {
+                        existing.ReloadTasks();
+                }
+            }
+        }//End
+
     }
 }
