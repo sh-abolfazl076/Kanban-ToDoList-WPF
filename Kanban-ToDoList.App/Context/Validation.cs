@@ -75,7 +75,7 @@ namespace Kanban_ToDoList.App.Context
                 MessageBox.Show("Title or Info exceeds the allowed limit.");
                 return false;
             }
-            if (!string.IsNullOrEmpty(duration) && !int.TryParse(duration, out _))
+            if (!string.IsNullOrEmpty(duration) && (!int.TryParse(duration, out int d) || d <= 0))
             {
                 MessageBox.Show("Duration must be a number.");
                 return false;

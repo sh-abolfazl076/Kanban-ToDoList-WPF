@@ -10,29 +10,45 @@
     <DockPanel>
 
         <!-- Top bar -->
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">
+        <Grid DockPanel.Dock="Top" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!-- Left side for buttons -->
+                <ColumnDefinition Width="Auto" />
+                <!-- Right side for clock -->
+            </Grid.ColumnDefinitions>
 
-            <!-- Users -->
-            <Button Content="Users List" Margin="5" 
-                    Padding="12 6" FontWeight="Bold" Foreground="White" 
-                    Background="#0078D7" BorderBrush="#005A9E" BorderThickness="1"  Cursor="Hand"
-                    Name="btnUsers" Click="btnUsers_Click"
-            />
+            <!-- Buttons on the left -->
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <!-- Users List button -->
+                <Button Content="Users List" Margin="5" 
+                Padding="12 6" FontWeight="Bold" Foreground="White" 
+                Background="#0078D7" BorderBrush="#005A9E" BorderThickness="1" Cursor="Hand"
+                Name="btnUsers" Click="btnUsers_Click"
+        />
 
-            <!-- Connect DB -->
-            <Button Content="log Out" Margin="5" 
-                    Padding="12 6" FontWeight="Bold" Foreground="White" 
-                    Background="#107C10" BorderBrush="#0B5C0B" BorderThickness="1" Cursor="Hand"
-                    Name="btnLogOut" Click="btnLogOut_Click"
-            />
+                <!-- Log Out button -->
+                <Button Content="Log Out" Margin="5" 
+                Padding="12 6" FontWeight="Bold" Foreground="White" 
+                Background="#107C10" BorderBrush="#0B5C0B" BorderThickness="1" Cursor="Hand"
+                Name="btnLogOut" Click="btnLogOut_Click"
+        />
 
-            <!-- New Task -->
-            <Button Content="New Task" Margin="10 5" 
-                    Padding="14 8" FontWeight="Bold" Foreground="White" 
-                    Background="#E81123" BorderBrush="#B50D1E" BorderThickness="1" Cursor="Hand"
-                    Name="btnCreatedTask" Click="btnCreatedTask_Click"
-            />
-        </StackPanel>
+                <!-- New Task button -->
+                <Button Content="New Task" Margin="5" 
+                Padding="14 8" FontWeight="Bold" Foreground="White" 
+                Background="#E81123" BorderBrush="#B50D1E" BorderThickness="1" Cursor="Hand"
+                Name="btnCreatedTask" Click="btnCreatedTask_Click"
+        />
+            </StackPanel>
+
+            <!-- Live clock on the right -->
+            <TextBlock x:Name="txtClock" FontWeight="Bold" FontSize="14" 
+               Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Right"
+               Grid.Column="1" Margin="0,0,20,0"/>
+            <!-- Clock updates every second -->
+        </Grid>
+
 
 
         <!-- Main Panel -->

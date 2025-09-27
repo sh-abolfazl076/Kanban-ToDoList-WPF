@@ -76,6 +76,17 @@ namespace Kanban_ToDoList.App.Services
                 if (today >= deadLine)
                 {
                     btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9E9E9E"));
+
+                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    {
+                        var task = db.TasksRepository.GetTaskById(idTask);
+                        if (task != null)
+                        {
+                            task.StageId = 5;
+                            db.TasksRepository.UpdateTask(task);
+                            db.Save(); 
+                        }
+                    }
                 }
 
             }
