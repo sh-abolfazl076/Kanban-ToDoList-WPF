@@ -1,13 +1,9 @@
 ﻿// System
-using System;
-using System.Windows;
-using System.Windows.Threading;
-
-// Internal
 using Kanban_ToDoList.App.Context;
+// Internal
 using Kanban_ToDoList.App.Services;
 using Kanban_ToDoList.DataLayer.Context;
-
+using System.Windows;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -17,33 +13,10 @@ namespace Kanban_ToDoList.App.Views
     /// </summary>
     public partial class WinMainPanle : Window
     {
-        private DispatcherTimer _timer;
         public WinMainPanle()
         {
             InitializeComponent();
-            StartClock();
         }
-
-        /// <summary>
-        /// Initialize the timer
-        /// </summary>
-        private void StartClock()
-        {
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
-        }//End
-
-        /// <summary>
-        /// Update the TextBlock to show current time
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            txtClock.Text = DateTime.Now.ToString("HH:mm:ss"); 
-        }//End
 
         /// <summary>
         /// Permission for using the CreateTask form
