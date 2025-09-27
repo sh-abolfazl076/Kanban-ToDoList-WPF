@@ -44,7 +44,7 @@ namespace Kanban_ToDoList.App.Views
                 txtInfo.Text = Description;
                 comboBoxStage.SelectedIndex = StageId - 1;
 
-                if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.ModifyTask) == null)
+                if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.ModifyTask) == null || StageId == TaskStages.DoneStage || StageId == TaskStages.CanalledStage)
                 {
                     btnSaveChange.Visibility = Visibility.Collapsed;
                     txtTitle.IsReadOnly = true;

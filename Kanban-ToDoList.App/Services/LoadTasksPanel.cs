@@ -84,7 +84,7 @@ namespace Kanban_ToDoList.App.Services
                         else if (today >= deadLine && task.StageId != TaskStages.DoneStage)
                         {
                             btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9E9E9E"));
-                            task.StageId = TaskStages.DoneStage;
+                            task.StageId = TaskStages.CanalledStage;
                             db.TasksRepository.UpdateTask(task);
                             db.Save();
                         }
