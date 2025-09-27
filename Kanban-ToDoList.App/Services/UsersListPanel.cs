@@ -10,8 +10,6 @@ using Kanban_ToDoList.DataLayer.Context;
 
 
 
-
-
 namespace Kanban_ToDoList.App.Services
 {
     public class UsersListPanel
@@ -206,10 +204,8 @@ namespace Kanban_ToDoList.App.Services
                     }
                 };
                 frm.ShowDialog();
-
             };
-            
-
         }// end
+
     }
 }

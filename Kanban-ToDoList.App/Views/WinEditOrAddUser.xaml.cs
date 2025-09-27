@@ -1,10 +1,10 @@
 ﻿// System
-using Kanban_ToDoList.App.Context;
-using Kanban_ToDoList.DataLayer.Context;
-// Internal
-using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Windows;
+
+// Internal
+using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.DataLayer.Model;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -49,7 +49,7 @@ namespace Kanban_ToDoList.App.Views
                 btnColseOrBack.Content = "Back";
                 txtTitle.Text = "Sing up User";
             }
-        }
+        }//End
 
         /// <summary>
         /// Handles the Close/Back button:
@@ -68,8 +68,6 @@ namespace Kanban_ToDoList.App.Views
                 this.Close();
                 login.ShowDialog();
             }
-
-
         }//End
 
         /// <summary>
@@ -84,7 +82,6 @@ namespace Kanban_ToDoList.App.Views
         {
             bool isUsernameAndPasswordValid = Context.Validation.IsUsernameAndPasswordValid(txtUsername.Text, txtPassWord.Password);
             bool isPasswordConfirmed = Context.Validation.IsPasswordConfirmed(txtPassWord.Password, txtPassWordCeck.Password);
-
 
             if (type == typeEditUser)
             {
@@ -171,9 +168,9 @@ namespace Kanban_ToDoList.App.Views
                         }
 
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        MessageBox.Show("ِDatabes Error :\n" + ex);
+                        MessageBox.Show("ِDatabes Error");
                     }
                 }
             }

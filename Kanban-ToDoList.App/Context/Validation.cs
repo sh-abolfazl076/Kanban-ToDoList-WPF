@@ -1,10 +1,5 @@
 ﻿// System
 using System.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 // Internal
@@ -92,7 +87,7 @@ namespace Kanban_ToDoList.App.Context
             }
             if (title.Length > 200 || Info.Length > 900)
             {
-                MessageBox.Show(" .");
+                MessageBox.Show("Title or Info exceeds the allowed limit.");
                 return false;
             }
             if (comboBoxStage < 0)

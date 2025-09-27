@@ -3,7 +3,6 @@ using System;
 using System.Windows;
 
 
-
 // Internal
 using Kanban_ToDoList.DataLayer.Context;
 
@@ -82,9 +81,9 @@ namespace Kanban_ToDoList.App.Views
                     }
 
                 }
-                catch (Exception ex)
+                catch
                 {
-                    MessageBox.Show("ِDatabes Error :\n" + ex);
+                    MessageBox.Show("ِDatabes Error");
                 }
             }
         }//End

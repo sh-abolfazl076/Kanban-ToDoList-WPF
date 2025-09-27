@@ -55,9 +55,6 @@ namespace Kanban_ToDoList.App.Views
                 if (db.UserPermissionsRepository.CheckPermission(ApplicationStore.Instance.UserId, PermissionId.RemoveTask) == null)
                 {
                     btnRemove.Visibility = Visibility.Collapsed;
-                    txtTitle.IsReadOnly = true;
-                    txtInfo.IsReadOnly = true;
-                    comboBoxStage.IsEnabled = false;
                 }
             }
         }//End

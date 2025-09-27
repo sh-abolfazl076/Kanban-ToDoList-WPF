@@ -71,7 +71,7 @@ namespace Kanban_ToDoList.App.Views
                     MessageBox.Show("You do not have access.");
                 }
             }
-        }
+        }//End
 
         /// <summary>
         /// Run when the window opens

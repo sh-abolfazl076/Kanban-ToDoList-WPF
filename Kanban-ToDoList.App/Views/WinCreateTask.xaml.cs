@@ -1,6 +1,4 @@
 ﻿// System
-using Kanban_ToDoList.DataLayer.Context;
-using Kanban_ToDoList.DataLayer.Model;
 using System;
 using System.Linq;
 using System.Windows;
@@ -10,6 +8,8 @@ using System.Windows.Controls;
 
 // Internal
 using Task = Kanban_ToDoList.DataLayer.Model.Task;
+using Kanban_ToDoList.DataLayer.Context;
+using Kanban_ToDoList.DataLayer.Model;
 
 
 namespace Kanban_ToDoList.App.Views
@@ -107,6 +107,4 @@ namespace Kanban_ToDoList.App.Views
             }
         }//End
     }
-
-
 }

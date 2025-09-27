@@ -2,7 +2,6 @@
 using System.Windows;
 
 
-
 // Internal
 using Kanban_ToDoList.App.Services;
 
@@ -56,7 +55,6 @@ namespace Kanban_ToDoList.App.Views
             {
                 LoadUsers();
             }
-
         }//End
     }
 }

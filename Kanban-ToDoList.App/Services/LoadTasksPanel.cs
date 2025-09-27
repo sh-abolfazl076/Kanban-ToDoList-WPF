@@ -4,9 +4,10 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CommunityToolkit.WinUI.Notifications;
+
 // Internal
 using Kanban_ToDoList.App.Views;
+using Kanban_ToDoList.App.Context;
 using Kanban_ToDoList.DataLayer.Context;
 
 
@@ -37,8 +38,6 @@ namespace Kanban_ToDoList.App.Services
 
                 }
             }
-
-
         }//End
 
         /// <summary>
@@ -67,28 +66,34 @@ namespace Kanban_ToDoList.App.Services
                 FontWeight = FontWeights.Bold
             };
 
-
+            //Gray button and mark task done if past deadline
             if (duration.HasValue)
             {
                 DateTime deadLine = createdAt.Date.AddDays(duration.Value);
                 DateTime today = DateTime.Now.Date;
 
-                if (today >= deadLine)
+                using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
                 {
-                    btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9E9E9E"));
-
-                    using (UnitOfWork db = new UnitOfWork(ApplicationStore.Instance.EfConnectionString))
+                    var task = db.TasksRepository.GetTaskById(idTask);
+                    if (task != null)
                     {
-                        var task = db.TasksRepository.GetTaskById(idTask);
-                        if (task != null)
+                        if (task.StageId == TaskStages.DoneStage)
                         {
-                            task.StageId = 5;
+                            btn.Background = new SolidColorBrush(Colors.Green);
+                        }
+                        else if (today >= deadLine && task.StageId != TaskStages.DoneStage)
+                        {
+                            btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9E9E9E"));
+                            task.StageId = TaskStages.DoneStage;
                             db.TasksRepository.UpdateTask(task);
-                            db.Save(); 
+                            db.Save();
+                        }
+                        else if (task.StageId == TaskStages.CanalledStage)
+                        {
+                            btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFA500"));
                         }
                     }
                 }
-
             }
 
             panel.Children.Add(btn); // Add the button to the 
@@ -113,7 +118,6 @@ namespace Kanban_ToDoList.App.Services
                     }
                 };
                 frm.ShowDialog();
-
             };
 
         }//End

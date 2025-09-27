@@ -1,6 +1,6 @@
 ﻿// System
-using System.Collections.Generic;
 using System.Windows;
+using System.Collections.Generic;
 using System.Windows.Controls;
 
 // Internal
@@ -105,7 +105,6 @@ namespace Kanban_ToDoList.App.Views
                             checkbox.IsChecked = true;
                         }
                     }
-
                 }
             }
 

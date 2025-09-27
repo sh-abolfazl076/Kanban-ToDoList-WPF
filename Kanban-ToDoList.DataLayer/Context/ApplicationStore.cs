@@ -1,10 +1,12 @@
-﻿using Kanban_ToDoList.DataLayer.Model;
+﻿// System
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
+
+// Internal
+using Kanban_ToDoList.DataLayer.Model;
+
+
+
 
 namespace Kanban_ToDoList.DataLayer.Context
 {

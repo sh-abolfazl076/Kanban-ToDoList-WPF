@@ -1,11 +1,10 @@
 ﻿// System
-
+using System.Linq;
 
 
 // Internal
 using Kanban_ToDoList.DataLayer.Model;
 using Kanban_ToDoList.DataLayer.Repository;
-using System.Linq;
 
 
 
@@ -75,6 +74,5 @@ namespace Kanban_ToDoList.DataLayer.Services
                 return false;
             }
         }
-
     }
 }
