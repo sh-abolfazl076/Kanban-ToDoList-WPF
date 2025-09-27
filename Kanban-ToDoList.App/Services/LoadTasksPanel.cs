@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-
+using CommunityToolkit.WinUI.Notifications;
 // Internal
 using Kanban_ToDoList.App.Views;
 using Kanban_ToDoList.DataLayer.Context;
@@ -17,6 +17,7 @@ namespace Kanban_ToDoList.App.Services
 {
     public class LoadTasksPanel
     {
+        
         /// <summary>
         /// Loads task data from the database where the status is StageId and userId 
         /// </summary>
@@ -32,13 +33,17 @@ namespace Kanban_ToDoList.App.Services
                 foreach (var item in getTasks)
                 {
                     // Call CreateBtn method
-                    CreateButton(panel, item.Title, item.ID, item.Description, userId, stageId); 
+                    CreateButton(panel, item.Title, item.ID, item.Description, userId, stageId, item.Duration , (DateTime)item.CreatedAt);
+
                 }
             }
+
+
         }//End
 
         /// <summary>
         /// Create a button for each row based on its status and user
+        /// Check if task has a deadline
         /// </summary>
         /// <param name="panel"></param>
         /// <param name="title"></param>
@@ -47,7 +52,7 @@ namespace Kanban_ToDoList.App.Services
         /// <param name="value"></param>
         /// <param name="userId"></param>
         /// <param name="stageId"></param>
-        private void CreateButton(StackPanel panel, string title, int idTask, string Description, int userId, int stageId)
+        private void CreateButton(StackPanel panel, string title, int idTask, string Description, int userId, int stageId, int? duration, DateTime createdAt)
         {
             Button btn = new Button
             {
@@ -61,6 +66,19 @@ namespace Kanban_ToDoList.App.Services
                 FontSize = 12,
                 FontWeight = FontWeights.Bold
             };
+
+
+            if (duration.HasValue)
+            {
+                DateTime deadLine = createdAt.Date.AddDays(duration.Value);
+                DateTime today = DateTime.Now.Date;
+
+                if (today >= deadLine)
+                {
+                    btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9E9E9E"));
+                }
+
+            }
 
             panel.Children.Add(btn); // Add the button to the 
 
